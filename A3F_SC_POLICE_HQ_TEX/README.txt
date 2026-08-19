@@ -1,0 +1,1 @@
+When packing this PBO set the PBO Name to A3LL_SD_HQ_TEX
