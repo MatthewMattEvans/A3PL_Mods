@@ -1,0 +1,17 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: P:\ProjectAmerica\vegetation\grass\cndgrass.rvmat
+//Produced from mikero's Dos Tools Dll version 9.11
+//https://mikero.bytex.digital/Downloads
+//'now' is Thu Jun 08 14:25:37 2023 : 'file' last modified on Sat Dec 03 03:53:20 2022
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+mainLight = "Sun";
+fogMode = "Fog";
+renderFlags[] = {"AlphaTest32"};
+VertexShaderID = "Grass";
+PixelShaderID = "Grass";
+ambient[] = {0.1,0.1,0.1,0.98};
+diffuse[] = {0.1,0.1,0.1,0.98};
+forcedDiffuse[] = {0.1,0.1,0.1,0.98};

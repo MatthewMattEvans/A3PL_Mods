@@ -1,0 +1,15 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: NightClub2\textures\glow1.rvmat
+//Produced from mikero's Dos Tools Dll version 9.64
+//https://mikero.bytex.digital/Downloads
+//'now' is Mon Oct 28 15:35:17 2024 : 'file' last modified on Fri Jul 19 10:10:31 2024
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+ambient[] = {0.9,0.9,0.9,1};
+diffuse[] = {0.9,0.9,0.9,1};
+forcedDiffuse[] = {0,0,0,0};
+emmisive[] = {30,30,40,1};
+specular[] = {0,0,0,1};
+specularPower = 10;
