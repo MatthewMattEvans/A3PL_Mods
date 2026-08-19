@@ -1,0 +1,6 @@
+//<'A3FL_Objects.pbo' properties via Mikero's dos tools, dll version 9.89>
+prefix=A3FL_Objects;
+Mikero=DePbo.dll.8.35;
+version=22121217;
+//PboType=Arma Addon;
+//</properties>
