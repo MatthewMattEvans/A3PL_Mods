@@ -1,0 +1,231 @@
+/*%FSM<COMPILE "C:\Bis\fsmeditor\scriptedFSM.cfg, Ambient Agent - Main">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"_",-1,250,275.000000,-75.000000,425.000000,125.000000,0.000000,""};
+item1[] = {"Continue",2,250,175.000000,-175.000000,275.000000,-125.000000,0.000000,"Continue"};
+item2[] = {"set_Timer_fear",2,250,-75.000000,-125.000000,25.000000,-75.000000,0.000000,"set Timer fear"};
+item3[] = {"Init",0,250,300.000000,-275.000000,400.000000,-225.000000,0.000000,"Init"};
+item4[] = {"Desync",4,218,300.000000,-175.000000,400.000000,-125.000000,0.000000,"Desync"};
+item5[] = {"Reset",2,250,-350.000000,-200.000000,-250.000000,-150.000000,0.000000,"Reset"};
+item6[] = {"Wait",4,218,-350.000000,-300.000000,-250.000000,-250.000000,0.000000,"Wait"};
+item7[] = {"__1",4,218,50.000000,-225.000000,150.000000,-175.000000,0.000000,""};
+item8[] = {"_",4,218,50.000000,-125.000000,150.000000,-75.000000,0.000000,""};
+item9[] = {"Continue_1",2,250,300.000000,175.000000,400.000000,225.000000,0.000000,"Continue"};
+item10[] = {"Formation",4,218,300.000000,50.000000,400.000000,100.000000,2.000000,"Formation"};
+item11[] = {"Formation",2,4346,300.000000,-50.000000,400.000000,0.000000,0.000000,"Formation"};
+item12[] = {"Danger",4,218,-50.000000,200.000000,50.000000,250.000000,0.000000,"Danger"};
+item13[] = {"set_Timer_normal",2,250,-75.000000,-225.000000,25.000000,-175.000000,0.000000,"set Timer normal"};
+item14[] = {"_",4,218,-250.000000,-325.000000,-150.000000,-275.000000,0.000000,""};
+version=1;
+class LayoutItems
+{
+	class Item0
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=10.000000;
+			lWidth=5;
+			lColor=16744448;
+		};
+		BgColor=16766378;
+	};
+};
+link0[] = {1,7};
+link1[] = {1,8};
+link2[] = {2,14};
+link3[] = {3,4};
+link4[] = {4,1};
+link5[] = {5,6};
+link6[] = {5,12};
+link7[] = {6,5};
+link8[] = {7,13};
+link9[] = {8,2};
+link10[] = {9,10};
+link11[] = {10,11};
+link12[] = {11,4};
+link13[] = {12,9};
+link14[] = {13,14};
+link15[] = {14,5};
+globals[] = {25.000000,1,0,1,16777215,640,480,1,23,6316128,1,-234.453705,355.871979,306.910553,-309.890350,825,862,1};
+window[] = {2,-1,-1,-1,-1,846,-1192,68,116,3,843};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "Ambient Agent - Main";
+  class States
+  {
+    /*%FSM<STATE "Continue">*/
+    class Continue
+    {
+      name = "Continue";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="set_Timer_fear";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(player distance _agent < _humansDetectionRadius);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "__1">*/
+        class __1
+        {
+          priority = 0.000000;
+          to="set_Timer_normal";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(player distance _agent > _humansDetectionRadius);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "set_Timer_fear">*/
+    class set_Timer_fear
+    {
+      name = "set_Timer_fear";
+      init = /*%FSM<STATEINIT""">*/"// always moving if the player if near the animal" \n "" \n "_timeNow = time;" \n "_idletime = 0;" \n "" \n "" \n ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="Reset";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time - _timeNow) >=  _idletime;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Init">*/
+    class Init
+    {
+      name = "Init";
+      init = /*%FSM<STATEINIT""">*/"_id = 0;" \n "" \n "//-----------------------" \n "// dev vars" \n "//-----------------------" \n "" \n "_stateDanger = 0;" \n "_state = ""wait"";" \n "" \n "" \n "//------------------------------------------------------------------------------------------------------------" \n "//--- Set unique variables from config" \n "_type = typeof _agent;" \n "_root = configFile >> ""CfgVehicles"" >> _type;" \n "" \n "" \n "" \n "_config2 = _root >> ""VariablesString"";" \n "_n2 = (count _config2) - 1;" \n "for ""_i"" from 0 to _n2 do" \n "{" \n "	_entry = _config2 select _i;" \n "	_name = configName _entry;" \n "	_value = getText _entry;" \n "	_agent setVariable [_name, _value];" \n "};" \n "" \n "" \n "" \n "//-----------------------------------" \n "//--- Get variables from config" \n "//-----------------------------------" \n "" \n "_wildAnimal = getNumber ( _root >> ""wildAnimal"");" \n "_humansDetectionRadius =  getNumber ( _root >> ""humansDetectionRadius"");" \n "_runDistanceMax = getNumber ( _root >> ""runDistanceMax"");" \n "_minIdleTime = getNumber ( _root >> ""minIdleTime"");" \n "_maxIdleTime = getNumber ( _root >> ""maxIdleTime"");" \n "" \n "_favouritezones = getText ( _root >> ""favouritezones"");" \n "" \n "" \n "" \n "" \n "" \n "//----------" \n "// Initpos" \n "//----------" \n "" \n "_initpos = (getpos _agent);" \n "_agent moveto  _initpos;" \n "" \n "" \n "//-----------------------" \n "// Special Idle Anims" \n "//-----------------------" \n "" \n "[_agent] execfsm ""CA\animals2\Data\scripts\idleSpecialAnim.fsm"";" \n "" \n "" \n "//----------------" \n "// Optimisation" \n "//----------------" \n "" \n "_agent disableAI ""AUTOTARGET"";" \n "_agent disableAI ""TARGET"";" \n "" \n "" \n "" \n "" \n "" \n "//--- Delay" \n "_timeNow = time;" \n "_delay = random 1;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Desync">*/
+        class Desync
+        {
+          priority = 0.000000;
+          to="Continue";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"( (movetocompleted _agent) );"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Reset">*/
+    class Reset
+    {
+      name = "Reset";
+      init = /*%FSM<STATEINIT""">*/"_stateDanger = 0;" \n "" \n "" \n "_animals = [];" \n "_animalsScared = [];" \n "_stateFormation = 0;" \n "_stateScared = 0;" \n "" \n "" \n "" \n "// temp" \n "_state = ""formation"";" \n "_stateFormation = 10;" \n "_agent setvariable [""state"",_state];" \n "" \n "" \n "//--- Delay" \n "_timeNow = time;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Danger">*/
+        class Danger
+        {
+          priority = 0.000000;
+          to="Continue_1";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true" \n ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Wait">*/
+        class Wait
+        {
+          priority = 0.000000;
+          to="Reset";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time - _timeNow) >= 1;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Continue_1">*/
+    class Continue_1
+    {
+      name = "Continue_1";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Formation">*/
+        class Formation
+        {
+          priority = 2.000000;
+          to="Formation";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_stateFormation > 0;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Formation">*/
+    class Formation
+    {
+      name = "Formation";
+      init = /*%FSM<STATEINIT""">*/"_state = ""formation"";" \n "_rand = random 8;" \n "_soundslist = [_sound1, _sound2, _sound3];" \n "" \n "" \n "" \n "" \n "" \n "" \n "" \n "" \n "" \n "//---------------------------------------------" \n "// normal " \n "//---------------------------------------------" \n "" \n "" \n "" \n "" \n "if ( (player distance _agent > _humansDetectionRadius) AND (_wildAnimal == 0)  ) then {" \n "" \n "_movedistance = (random _runDistanceMax);" \n "_movepos = [(_initpos select 0) +Random(2*_movedistance) -_movedistance,(_initpos select 1) +Random(2*_movedistance) -_movedistance,0];" \n "" \n "_agent setBehaviour ""SAFE"";" \n "_agent setSpeedMode ""LIMITED"";" \n "" \n "_agent moveto _movepos;" \n "};" \n "" \n "" \n "" \n "" \n "" \n "if ( (player distance _agent < _humansDetectionRadius) AND (_wildAnimal == 0)  ) then {" \n "" \n "_movedistance = (random _runDistanceMax);" \n "_movepos = [(_initpos select 0) +Random(2*_movedistance) -_movedistance,(_initpos select 1) +Random(2*_movedistance) -_movedistance,0];" \n "" \n "_agent setBehaviour ""SAFE"";" \n "_agent setSpeedMode ""LIMITED"";" \n "" \n "_agent moveto _movepos;" \n "};" \n "" \n "" \n "" \n "" \n "// if the animal is a wild animal and if the player is not in fear radius" \n "if ( (player distance _agent > _humansDetectionRadius) AND (_wildAnimal == 1)  ) then {" \n "" \n "_movedistance = (random _runDistanceMax);" \n "_movepos = [(_initpos select 0) +Random(2*_movedistance) -_movedistance,(_initpos select 1) +Random(2*_movedistance) -_movedistance,0];" \n "" \n "_agent setBehaviour ""SAFE"";" \n "_agent setSpeedMode ""LIMITED"";" \n "" \n "_agent moveto _movepos;" \n "};" \n "" \n "" \n "" \n "" \n "" \n "//---------------------------------------------" \n "// human fear" \n "//---------------------------------------------" \n "" \n "" \n "" \n "" \n "if ( (player distance _agent < _humansDetectionRadius)  AND (_wildAnimal == 1) ) then {" \n "" \n "" \n "// find a good safe position" \n "_PosList = selectbestplaces [(getpos _agent),500,_favouritezones,10,5];" \n "_PosSelect = _PosList select (floor random (count _PosList));" \n "_Pos =  _PosSelect select 0;        " \n "" \n "_agent setBehaviour ""COMBAT"";" \n "_agent setSpeedMode ""FULL"";" \n "" \n "_agent moveto _Pos;" \n "" \n "" \n "};" \n "" \n "" \n "" \n "" \n "" \n "" \n "" \n "" \n "if (_rand < 1) then {" \n "" \n "	_soundselected= (_soundslist select floor(random(count _soundslist)));" \n "" \n "      if (_soundselected != """") then {" \n "		_agent say [_soundselected, 0]" \n "      };" \n "" \n "};" \n "" \n "" \n "" \n "" \n "//--- Delay" \n "_timeNow = time;" \n "_delay = 10 + random 10;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Desync">*/
+        class Desync
+        {
+          priority = 0.000000;
+          to="Continue";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"( (movetocompleted _agent) );"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "set_Timer_normal">*/
+    class set_Timer_normal
+    {
+      name = "set_Timer_normal";
+      init = /*%FSM<STATEINIT""">*/"_timeNow = time;" \n "_idletime = (_minIdleTime + random _maxIdleTime);" \n "" \n "" \n ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="Reset";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time - _timeNow) >=  _idletime;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Init";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/

@@ -1,0 +1,102 @@
+_agent = _this select 0;
+_type = typeof _agent;
+
+_initpos = getpos _agent;
+_movementradius = 10
+
+_maxgroupingdistance = 50;
+_AgentHaveLeader = false;
+
+
+;// detect the leader
+_nagentleader = position _agent nearestObject _type
+
+;// If the cow is alone on the map then it have noleader
+;//? (_nagentleader == _nagentleader) : _AgentHaveLeader = false; player sidechat "Debug: Cow [Have no leader]"
+
+
+;// If the cow is alone on the map then it have noleader
+;//? (_agent distance _nagentleader) < _maxgroupingdistance : _AgentHaveLeader = true; player sidechat "Debug: Cow [Have leader]"
+
+
+
+
+
+#loop
+~10
+~random 10
+	
+	
+
+? (behaviour _agent == "COMBAT") : goto "loop"
+
+
+
+
+
+_movedistance = random _movementradius;
+_movepos = [(_initpos select 0) +Random(2*_movedistance) -_movedistance,(_initpos select 1) +Random(2*_movedistance) -_movedistance,0];
+
+
+
+
+	
+
+
+
+
+_agent moveto _movepos
+;//player sidechat "Debug: Cow [Move]"
+
+
+
+
+
+? ! (alive _agent) : exit
+goto "loop"
+
+
+
+
+
+
+
+
+
+
+
+
+
+#avoid_house
+_olddist = (_nBuilding distance _agent)
+
+	
+
+player sidechat format ["Debug: Cow [Try to avoid house at %1 meters", _olddist]; 
+	
+
+
+
+
+#select1
+_movedistance = (_olddist + 20)
+_movepos = [(getpos _agent select 0) +Random(2*_movedistance) -_movedistance,(getpos _agent select 1) +Random(2*_movedistance) -_movedistance,0];
+
+
+? (_agent distance _movepos) < _olddist : goto "select1"
+	
+_newdist = (_agent distance _movepos)
+
+
+
+player sidechat format ["Debug: Cow [New position at %1 meters fomr this house", round (_newdist)]; 
+
+
+_agent moveto _movepos
+
+	
+@ (_agent distance _movepos) < 20
+goto "loop"
+
+
+

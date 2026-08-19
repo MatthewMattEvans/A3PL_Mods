@@ -1,0 +1,47 @@
+_agent = _this select 0;
+_animslist = ["Cow_Eat_IdleA","Cow_Eat_IdleB","Cow_Eat_IdleC"]
+_i = 0
+
+	
+	
+	
+#start
+~random 15
+? (behaviour _agent == "COMBAT") : goto "start"
+	
+
+
+_iend = random 10
+_i = 0
+
+
+
+
+
+#loop
+~2
+_i =_i + 1
+
+
+
+_agent playmove (_animslist select floor(random(count _animslist)))
+	
+
+
+? (_i > _iend) : goto "start"
+? (behaviour _agent == "COMBAT") : goto "start"
+
+? ! (alive _agent) : exit
+goto "loop"
+
+
+
+
+
+
+
+
+
+
+
+

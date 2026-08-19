@@ -1,0 +1,55 @@
+_agent = _this select 0;
+_type = typeof _agent;
+
+_initpos = getpos _agent;
+
+_maxgroupingdistance = 50;
+_houseavoidingdistance = 50;
+_AgentHaveLeader = false;
+
+
+;// detect the leader
+_nagentleader = position _agent nearestObject _type
+
+
+
+#loop
+~15
+~random 15
+	
+	
+
+? (behaviour _agent == "COMBAT") : goto "loop"
+
+
+
+
+
+_movedistance = (50 + random 30);
+
+
+#set_movepos
+
+
+
+_movepos = [(getpos _agent select 0) +Random(2*_movedistance) -_movedistance,(getpos _agent select 1) +Random(2*_movedistance) -_movedistance,0];
+
+
+
+_agent moveto _movepos
+
+
+
+? ! (alive _agent) : exit
+goto "loop"
+
+
+
+
+
+
+
+
+
+
+

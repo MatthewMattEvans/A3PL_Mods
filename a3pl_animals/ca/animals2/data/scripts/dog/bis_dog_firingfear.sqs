@@ -1,0 +1,46 @@
+_agent = _this select 0;
+_type = typeof _agent;
+_soundslist = ["dog_01"]
+_movedistance = (100 + random 100);
+
+Fear = false
+
+
+_EHfired = player addEventHandler ["fired", {Fear = true}]	
+	
+
+
+#loop	
+Fear = false	
+@ Fear
+
+
+? (player distance _agent > 100) : goto "loop"
+
+
+
+_movepos = [(getpos _agent select 0) +Random(2*_movedistance) -_movedistance,(getpos _agent select 1) +Random(2*_movedistance) -_movedistance,0];
+
+
+
+_rand = random 2
+? (_rand > 1) : _agent say [(_soundslist select floor(random(count _soundslist))), 0]
+
+_agent setBehaviour "COMBAT"
+_agent setspeedmode "FULL"
+_agent moveto _movepos
+
+
+~60
+_agent setBehaviour "AWARE"
+? ! (alive _agent) : exit
+goto "loop"
+
+
+
+
+
+
+
+
+

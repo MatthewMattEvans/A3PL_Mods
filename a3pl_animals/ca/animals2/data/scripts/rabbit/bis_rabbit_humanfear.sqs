@@ -1,0 +1,33 @@
+_agent = _this select 0;
+_humanfeardistance = 50;
+_movedistance = (50 +random 50);
+
+
+
+#loop
+~2
+	
+	
+
+? (player distance _agent) < _humanfeardistance : goto "hidefromhuman"
+
+
+? ! (alive _agent) : exit
+goto "loop"
+
+
+	
+
+
+#hidefromhuman
+;//player sidechat "Debug: Cow [Human Disturbing]  [Goto Hiding Pos]"
+
+
+_HidingPosition = [(getpos player select 0) +((((_movedistance^2)+(_movedistance^2))^0.5) * sin (getdir player )), (getpos player select 1) +((((_movedistance^2)+(_movedistance^2))^0.5) * cos  (getdir player )), (getpos player select 2) +0]
+
+_agent moveto _HidingPosition
+
+
+~10
+? ! (alive _agent) : exit
+goto "loop"

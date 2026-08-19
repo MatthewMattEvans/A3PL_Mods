@@ -1,0 +1,142 @@
+/*%FSM<COMPILE "C:\Bis\fsmeditor\scriptedFSM.cfg, Idle Special Anim">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Init",0,250,300.000000,-275.000000,400.000000,-225.000000,0.000000,"Init"};
+item1[] = {"Desync",4,218,175.000000,-200.000000,275.000000,-150.000000,0.000000,"Desync"};
+item2[] = {"play_anim",2,250,-325.000000,-200.000000,-225.000000,-150.000000,0.000000,"play anim"};
+item3[] = {"Continue",2,250,0.000000,-50.000000,100.000000,0.000000,0.000000,"Continue"};
+item4[] = {"set_Timer",2,4346,25.000000,-200.000000,125.000000,-150.000000,0.000000,"set Timer"};
+item5[] = {"_",4,218,-150.000000,-200.000000,-50.000000,-150.000000,0.000000,""};
+item6[] = {"_",8,218,-175.000000,-50.000000,-75.000000,0.000000,0.000000,""};
+item7[] = {"exit",4,218,325.000000,-200.000000,425.000000,-150.000000,0.000000,"exit"};
+item8[] = {"_",1,250,325.000000,-100.000000,425.000000,-50.000000,0.000000,""};
+link0[] = {0,1};
+link1[] = {0,7};
+link2[] = {1,4};
+link3[] = {2,6};
+link4[] = {3,1};
+link5[] = {4,5};
+link6[] = {5,2};
+link7[] = {6,3};
+link8[] = {7,8};
+globals[] = {25.000000,1,0,1,16777215,640,480,1,27,6316128,1,-261.907837,523.815674,408.991119,-411.970917,825,862,1};
+window[] = {2,-1,-1,-32000,-32000,817,-1214,46,87,3,843};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "Idle Special Anim";
+  class States
+  {
+    /*%FSM<STATE "Init">*/
+    class Init
+    {
+      name = "Init";
+      init = /*%FSM<STATEINIT""">*/"_agent = _this select 0;" \n "" \n "" \n "" \n "" \n "// --------------------------------" \n "// get special animation name" \n "// --------------------------------" \n "" \n "" \n "_type = typeof _agent;" \n "_root = configFile >> ""CfgVehicles"" >> _type;" \n "" \n "_animation =  getText  ( _root >> ""idleSpecialAnim"");" \n "" \n "" \n "" \n "" \n "//--- Delay" \n "_timeNow = time;" \n "_delay = random 1;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "exit">*/
+        class exit
+        {
+          priority = 0.000000;
+          to="_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_animation == """" );" \n "" \n "" \n "" \n ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Desync">*/
+        class Desync
+        {
+          priority = 0.000000;
+          to="set_Timer";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(  (movetocompleted _agent) AND (_animation != """")  );"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "play_anim">*/
+    class play_anim
+    {
+      name = "play_anim";
+      init = /*%FSM<STATEINIT""">*/"" \n "" \n "" \n "" \n "_agent playmove _animation;" \n "" \n "" \n "" \n "" \n "//--- Delay" \n "_timeNow = time;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="Continue";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Continue">*/
+    class Continue
+    {
+      name = "Continue";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Desync">*/
+        class Desync
+        {
+          priority = 0.000000;
+          to="set_Timer";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(  (movetocompleted _agent) AND (_animation != """")  );"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "set_Timer">*/
+    class set_Timer
+    {
+      name = "set_Timer";
+      init = /*%FSM<STATEINIT""">*/"_timeNow = time;" \n "_idletime = (1 + random 2);" \n "" \n "" \n ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="play_anim";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time - _timeNow) >=  _idletime;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "_">*/
+    class _
+    {
+      name = "_";
+      init = /*%FSM<STATEINIT""">*/"true"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Init";
+  finalStates[] =
+  {
+    "_",
+  };
+};
+/*%FSM</COMPILE>*/
