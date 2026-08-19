@@ -1,0 +1,6 @@
+//<'a3pl_houses.pbo' properties via Mikero's dos tools, dll version 9.66>
+prefix=A3PL_Houses;
+Mikero=DePbo.dll.9.11;
+version=23062701;
+//PboType=Arma Addon;
+//</properties>

@@ -1,0 +1,20 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: CityHall\Data\glass_armored.bisurf
+//Produced from mikero's Dos Tools Dll version 9.66
+//https://mikero.bytex.digital/Downloads
+//'now' is Thu Oct 31 11:26:32 2024 : 'file' last modified on Tue Jan 17 17:01:43 2023
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+Density = 10000;
+rough = 0;
+dust = 0;
+bulletPenetrability = 0;
+soundEnviron = "Empty";
+isWater = "false";
+friction = 1.0;
+restitution = 0.1;
+impact = "hitGlass";
+soundHit = "Glass";
+deflection = 1;

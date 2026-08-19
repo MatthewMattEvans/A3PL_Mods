@@ -1,0 +1,24 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: control_tower\config.bin
+//Produced from mikero's Dos Tools Dll version 9.66
+//https://mikero.bytex.digital/Downloads
+//'now' is Thu Oct 31 11:26:33 2024 : 'file' last modified on Tue Jan 17 16:58:02 2023
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+class CfgPatches
+{
+	class A3PL_Houses_ATCTower
+	{
+		units[] = {};
+		weapons[] = {};
+		requiredVersion = 0.1;
+		requiredAddons[] = {"A3PL_Cars","A3PL_Houses"};
+	};
+};
+class cfgMods
+{
+	author = "Marshall";
+	timepacked = "1673956681";
+};

@@ -1,0 +1,39 @@
+ambient[]		= {0.8,0.8,0.8,1};
+diffuse[]		= {0.8,0.8,0.8,1};
+forcedDiffuse[]	= {0,0,0,0};
+emmisive[]		= {0,0,0,1};
+specular[]		= {0,0,0,0};
+specularPower	= 800;
+PixelShaderID	= "Multi";
+VertexShaderID	= "Multi";
+
+
+// BLACK
+class TexGen0 	{uvSource="tex";	class uvTransform{aside[]={1,0,0};	up[]={0,1,0};	dir[]={0,0,1};	pos[]={0,0,0};};};
+class Stage0	{texture="A3PL_Houses\data\tarmac_co.paa";										texGen="0";};
+class Stage5	{texture="A3PL_Houses\data\tarmac_smdi.paa";																		texGen="5";};
+class Stage11	{texture="A3PL_Houses\data\tarmac_nohq.paa";									texGen="0";};
+
+// RED
+class TexGen1 	{uvSource="tex";	class uvTransform{aside[]={1,0,0};	up[]={0,1,0};	dir[]={0,0,1};	pos[]={0,0,0};};};
+class Stage1	{texture="A3PL_Houses\data\tarmac_white_co.paa";										texGen="1";};
+class Stage6	{texture="A3PL_Houses\data\tarmac_white_smdi.paa";									texGen="6";};
+class Stage12	{texture="A3PL_Houses\data\tarmac_white_nohq.paa";										texGen="1";};
+
+// GREEN
+class TexGen2 	{uvSource="tex";	class uvTransform{aside[]={1,0,0};	up[]={0,1,0};	dir[]={0,0,1};	pos[]={0,0,0};};};
+class Stage2	{texture="A3PL_Houses\data\garage_wall_ext_co.paa";											texGen="2";};
+class Stage7	{texture="A3PL_Houses\data\garage_wall_ext_smdi.paa";																		texGen="7";};
+class Stage13	{texture="A3PL_Houses\data\garage_wall_ext_nohq.paa";											texGen="2";};
+
+// BLUE
+class TexGen3 	{uvSource="tex";	class uvTransform{aside[]={1,0,0};	up[]={0,1,0};	dir[]={0,0,1};	pos[]={0,0,0};};};
+class Stage3	{texture="A3PL_Houses\data\metal_worn_green_co.paa";											texGen="3";};
+class Stage8	{texture="A3PL_Houses\data\metal_worn_green_smdi.paa";																		texGen="3";};
+class Stage14	{texture="A3PL_Houses\data\metal_worn_green_nohq.paa";											texGen="3";};
+
+// MASK, MC, AS/ADS
+class TexGen4 	{uvSource="tex1";	class uvTransform{aside[]={1,0,0};	up[]={0,1,0};	dir[]={0,0,1};	pos[]={0,0,0};};};
+class Stage4	{texture="A3PL_Houses\Impound\Data\impound_2_mask.paa";										texGen="4";};
+class Stage9	{texture="A3PL_Houses\Impound\Data\impound_2_mc.paa";											texGen="4";};
+class Stage10	{texture="A3PL_Houses\Impound\Data\impound_2_ads.paa";											texGen="4";};

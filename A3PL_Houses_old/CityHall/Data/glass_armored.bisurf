@@ -1,0 +1,11 @@
+Density=10000;
+rough=0;
+dust=0;
+bulletPenetrability=0;
+soundEnviron="Empty";
+isWater="false";
+friction=1.0;
+restitution=0.1;
+impact="hitGlass";
+soundHit="Glass";
+deflection=1;
