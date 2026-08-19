@@ -1,0 +1,41 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: t_sorbus2s_1.rvmat
+//Produced from mikero's Dos Tools Dll version 10.10
+//https://mikero.bytex.digital/Downloads
+//'now' is Thu Nov 20 21:42:08 2025 : 'file' last modified on Sun Dec 19 04:49:38 2021
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+ambient[] = {0.2,0.52,0.5,0.5};
+diffuse[] = {0.6,0.6,0.6,1.3};
+forcedDiffuse[] = {0.0,0.0,0.0,0.61};
+emmisive[] = {1.0,1.0,1.0,0.0};
+specular[] = {0.0,0.0,0.0,"1.5."};
+specularPower = 30;
+PixelShaderID = "TreeAdv";
+VertexShaderID = "TreeAdv";
+class Stage1
+{
+	texture = "a3\vegetation_f_enoch\tree\data\t_sorbus2s_1_nohq.paa";
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1.0,0.0,0.0};
+		up[] = {0.0,1.0,0.0};
+		dir[] = {0.0,0.0,0.0};
+		pos[] = {0.0,0.0,0.0};
+	};
+};
+class Stage2
+{
+	texture = "#(argb,8,8,3)color(0.5,0.5,0.5,1,MC)";
+	uvSource = "tex1";
+	class uvTransform
+	{
+		aside[] = {1.0,0.0,0.0};
+		up[] = {0.0,1.0,0.0};
+		dir[] = {0.0,0.0,0.0};
+		pos[] = {0.0,0.0,0.0};
+	};
+};

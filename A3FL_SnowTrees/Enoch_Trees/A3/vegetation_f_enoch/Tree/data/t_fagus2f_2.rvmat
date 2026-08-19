@@ -1,0 +1,41 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: t_fagus2f_2.rvmat
+//Produced from mikero's Dos Tools Dll version 10.10
+//https://mikero.bytex.digital/Downloads
+//'now' is Thu Nov 20 21:42:05 2025 : 'file' last modified on Sun Dec 19 04:49:37 2021
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+ambient[] = {0.05,0.53,0.8,0.6};
+diffuse[] = {1.0,1.0,1.0,0.7};
+forcedDiffuse[] = {0.95,0.95,0.5,1.0};
+emmisive[] = {0.95,0.95,0.95,0.3};
+specular[] = {0.04,0.05,0.03,0.3};
+specularPower = 60;
+PixelShaderID = "TreeAdv";
+VertexShaderID = "TreeAdv";
+class Stage1
+{
+	texture = "a3\vegetation_f_enoch\tree\data\t_fagus2f_1_nohq.paa";
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};
+class Stage2
+{
+	texture = "a3\vegetation_f_enoch\tree\data\t_fagus2f_1_mca.paa";
+	uvSource = "tex1";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};

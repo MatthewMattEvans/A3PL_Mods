@@ -1,0 +1,41 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: Bush\data\b_prunusSpinosa_2s_leaves.rvmat
+//Produced from mikero's Dos Tools Dll version 9.61
+//https://mikero.bytex.digital/Downloads
+//'now' is Wed Oct 02 22:54:31 2024 : 'file' last modified on Thu Jul 04 18:35:28 2019
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+ambient[] = {0.08,0.58,0.05,0.1};
+diffuse[] = {0.32,0.37,0.26,2.8};
+forcedDiffuse[] = {0.8,0.8,0.45,0.45};
+emmisive[] = {0.8,0.8,0.8,0.2};
+specular[] = {0.03,0.03,0.02,0.5};
+specularPower = 20;
+PixelShaderID = "TreeAdv";
+VertexShaderID = "TreeAdv";
+class Stage1
+{
+	texture = "#(argb,8,8,3)color(0.5,0.5,1,1,NOHQ)";
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};
+class Stage2
+{
+	texture = "#(argb,8,8,3)color(0.5,0.5,0.5,1,MCA)";
+	uvSource = "tex1";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};

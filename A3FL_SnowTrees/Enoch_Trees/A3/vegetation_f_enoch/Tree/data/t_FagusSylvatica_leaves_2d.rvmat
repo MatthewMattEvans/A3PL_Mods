@@ -1,0 +1,41 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: t_FagusSylvatica_leaves_2d.rvmat
+//Produced from mikero's Dos Tools Dll version 10.10
+//https://mikero.bytex.digital/Downloads
+//'now' is Thu Nov 20 21:42:06 2025 : 'file' last modified on Sun Dec 19 04:49:38 2021
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+ambient[] = {0.1,0.58,0.025,0.01};
+diffuse[] = {0.7,0.7,0.7,0.9};
+forcedDiffuse[] = {3.0,3.0,0.55,0.55};
+emmisive[] = {1.0,1.0,1.0,0.4};
+specular[] = {0.05,0.06,0.05,0.2};
+specularPower = 60;
+PixelShaderID = "TreeAdv";
+VertexShaderID = "TreeAdv";
+class Stage1
+{
+	texture = "#(argb,8,8,3)color(0.5,0.5,1.0,1,NOHQ)";
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};
+class Stage2
+{
+	texture = "#(argb,8,8,3)color(0.5,0.5,0.5,1,MC)";
+	uvSource = "tex1";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};
