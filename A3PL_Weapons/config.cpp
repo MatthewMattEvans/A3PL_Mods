@@ -1,0 +1,1861 @@
+class CfgPatches
+{
+	class A3PL_Weapons
+	{
+		units[] = {};
+		weapons[] = {};
+		requiredAddons[] = {"A3_Data_F","A3_Weapons_F","A3PL_Cars","A3PL_Characters"};
+		requiredVersion = 0.1;
+	};
+};
+class SlotInfo;
+class CowsSlot;
+class PointerSlot;
+class Mode_SemiAuto{class BaseSoundModeType;};
+class Mode_FullAuto;
+class WeaponFireGun;
+class WeaponCloudsGun;
+class WeaponFireMGun;
+class WeaponCloudsMGun;
+class A3PL_MeleeSingle: Mode_SemiAuto 
+{
+	autoFire = 1;
+	burst = 1;
+	burstRangeMax = -1;
+	canShootInWater = 0;
+	dispersion = 0;
+	displayName = "Melee";
+	ffCount = 1;
+	ffFrequency = 11;
+	ffMagnitude = 0.5;
+	flash = "";
+	flashSize = 0.1;
+	multiplier = 1;
+	recoil = "recoil_empty";
+	recoilProne = "recoil_empty";
+	reloadTime = 0.07;
+	requiredOpticType = -1;
+	showToPlayer = 1;
+	swing0[] = {"A3PL_Weapons\axe\sounds\swing_0", 1.77828, 1, 30};
+	swing1[] = {"A3PL_Weapons\axe\sounds\swing_1", 1.77828, 1, 30};
+	soundBegin[] = {"swing0", 0.5, "swing1", 0.5};
+	sound[] = {"",10,1};
+	soundBeginWater[] = {"sound",1};
+	soundBurst = 0;
+	soundClosure[] = {"sound",1};
+	soundContinuous = 0;
+	soundEnd[] = {};
+	soundLoop[] = {};
+	sounds[] = {"StandardSound"};
+	class StandardSound
+	{
+		begin1[] = {"A3PL_Weapons\axe\sounds\swing_1",1.0,1,300};
+		soundBegin[] = {"begin1",1};
+	};
+	textureType = "semi";
+	useAction = 0;
+	useActionTitle = "";
+	weaponSoundEffect = "";
+};
+class A3PL_Machinery_Mode: A3PL_MeleeSingle 
+{
+	swing0[] = {"", 1.77828, 1, 30};
+	swing1[] = {"", 1.77828, 1, 30};
+	soundBegin[] = {"swing0", 0.5, "swing1", 0.5};
+	displayName = "Machinery";
+	class StandardSound
+	{
+		begin1[] = {"",1.0,1,300};
+		soundBegin[] = {"begin1",1};
+	};
+};
+class CfgAmmo
+{
+	class B_9x21_Ball;
+	class B_556x45_Ball;
+	class LaserBombCore;
+	class B_9x21_Ball_Tracer_Green;
+	class A3PL_BulletBase: B_9x21_Ball
+	{
+		
+		author = "ArmA 3 Project Life";
+	};
+	class A3PL_Melee: A3PL_BulletBase 
+	{
+		model = "\A3\Weapons_f\empty";
+		hit = 0.001;
+		soundEngine[] = {"", 0, 1};
+		visibleFire = 0;// how much is visible when this weapon is fired
+		audibleFire = 0;
+		visibleFireTime = 0;// how long is it visible
+		maxControlRange = 1;// max range for manual control, 0 = no control (passive weapon)
+		cost = 1;
+		tracerColor[] = {0, 0, 0, 0};
+		tracerColorR[] = {0, 0, 0, 0};
+		typicalSpeed= 0.1;
+		maxSpeed = 0.1;
+		caliber = 0.1;
+		airFriction = -0.5;
+		isCraterOriented = 0;
+		craterShape = "";
+		cartridge = "EmptyEffect";
+		explosionEffects = "EmptyEffect";
+		craterEffects = "EmptyEffect";
+		muzzleEffect = "EmptyEffect";
+		effectFly = "EmptyEffect";
+		craterWaterEffects = "EmptyEffect";
+		effectsMissile = "EmptyEffect";
+		effectsMissileInit = "EmptyEffect";
+		effectsSmoke = "EmptyEffect";
+		effectsFire = "EmptyEffect";
+		effectFlare = "EmptyEffect";
+		mineJumpEffects = "EmptyEffect";
+		explosionSoundEffect = "EmptyEffect";
+		bulletFly1[] = {"",1.58489,1,30};
+		bulletFly2[] = {"",1.58489,1,30};
+		bulletFly3[] = {"",1.58489,1,30};
+		bulletFly4[] = {"",1.58489,1,30};
+		bulletFly5[] = {"",1.58489,1,30};
+		bulletFly6[] = {"",1.58489,1,30};
+		bulletFly7[] = {"",1.58489,1,30};
+		bulletFly8[] = {"",1.58489,1,30};
+		bulletFly9[] = {"",1.58489,1,30};
+		bulletFly10[] = {"",1.58489,1,30};
+		bulletFly11[] = {"",1.58489,1,30};
+		bulletFly12[] = {"",1.58489,1,30};
+		bulletFly[] = {"bulletFly1",0.083,"bulletFly2",0.083,"bulletFly3",0.083,"bulletFly4",0.083,"bulletFly5",0.083,"bulletFly6",0.083,"bulletFly7",0.083,"bulletFly8",0.083,"bulletFly9",0.083,"bulletFly10",0.083,"bulletFly11",0.083,"bulletFly12",0.083};
+		supersonicCrackNear[] = {"",3.16228,1,200};
+		supersonicCrackFar[] = {"",3.16228,1,200};
+		soundSetSonicCrack[] = {"bulletFly1",0.083,"bulletFly2",0.083};
+		soundFly[] = {"",0.251189,0.7};
+		soundFall[] = {"",1,1};
+		soundFakeFall[] = {"soundFall",1};
+		class SuperSonicCrack 
+		{
+			superSonicCrack[] = {"",3.16228,1,200};
+			class SCrackForest 
+			{
+				range[] = {0,500};
+				sound1[] = {"",1,1,500};
+				sound2[] = {"",1,1,500};
+				sound3[] = {"",1,1,500};
+				sounds[] = {"sound1",0.333,"sound2",0.333,"sound3",0.333};
+				frequency = "((speed factor [330, 930]) * 0.1) + 1.05";
+				trigger = "forest";
+			};
+			class SCrackTrees: SCrackForest {trigger = "trees";};
+			class SCrackMeadow: SCrackForest {trigger = "meadow max sea";};
+			class SCrackHouses: SCrackForest {trigger = "houses max interior";};
+		};
+	};
+	class A3PL_Paintball_Bullet: B_9x21_Ball_Tracer_Green
+	{
+		hit = 0.5;
+		indirectHit = 0.02;
+		indirectHitRange = 0.02;
+		cartridge = "";
+		visibleFire = 6;
+		audibleFire = 8;
+		cost = 1.2;
+		airLock = 1;
+		typicalSpeed = 150;
+		caliber = 0.008;
+		craterEffects = "cal68_impact_red";
+		explosionEffects = "cal68_impact_red";
+		model = "\A3\Weapons_f\Data\bullettracer\tracer_red";
+		tracerScale = 2.0;
+		tracerStartTime = 0.02;
+		tracerEndTime = 3.5;
+		airFriction = -0.032;
+		class CamShakeFire
+		{
+			power = 0;
+			duration = 0;
+			frequency = 0;
+			distance = 0;
+		};
+		class CamShakePlayerFire
+		{
+			power = 0;
+			duration = 0;
+			frequency = 0;
+			distance = 0;
+		};
+	};
+	class A3PL_TaserBullet: B_9x21_Ball
+	{
+		hit = 0.4;
+		cartridge = "FxCartridge_65_caseless";
+		cost = 50;
+		typicalSpeed = 100;
+		indirectHit = 0;
+		indirectHitRange = 0;
+		airFriction = -0.15;
+		caliber = 0.3;
+	};
+	class A3PL_3006: B_556x45_Ball
+	{
+		hit = 11.4;
+		airFriction = -0.00096;
+		typicalSpeed = 810;
+		caliber = 2;
+		deflecting = 21;
+		visibleFire = 22;
+		audibleFire = 18;
+		visibleFireTime = 3;
+		cost = 1;
+		indirecthit = 0;
+		indirecthitrange = 0;
+		nvgonly = 1;
+		tracerendtime = 1;
+		tracerscale = 1;
+		tracerstarttime = 0.05;
+		class CamShakeExplode
+		{
+			power = "(10^0.5)";
+			duration = "((round (10^0.5))*0.2 max 0.2)";
+			frequency = 20;
+			distance = "((10^0.5)*3)";
+		};
+		class CamShakeHit
+		{
+			power = 10;
+			duration = "((round (10^0.25))*0.2 max 0.2)";
+			frequency = 20;
+			distance = 1;
+		};
+	};
+	class A3PL_Fist_Bullet: A3PL_Melee
+	{
+		hit = 1.2;
+	};
+	class A3PL_GolfClub_Bullet: A3PL_Melee
+	{
+		hit = 1.5;
+	};
+	class A3PL_Shank_Bullet: A3PL_Melee
+	{
+		hit = 2;
+	};
+	class A3PL_Knife_Bullet: A3PL_Melee
+	{
+		hit = 2.5;
+	};
+	class A3PL_Machete_Bullet: A3PL_Melee
+	{
+		hit = 3;
+	};
+	class A3PL_Shovel_Bullet: A3PL_Melee
+	{
+		caliber = 1;
+		hit = 0.2;//0.001
+	};
+	class A3PL_PickAxe_Bullet: A3PL_Melee
+	{
+		caliber = 1;
+		hit = 0.4;//0.001
+	};
+	class A3PL_Jackhammer_Bullet: A3PL_Melee
+	{
+		caliber = 1;
+		hit = 2;//PickAxe*5
+	};
+	class A3PL_Axe_Bullet: A3PL_Melee
+	{
+		hit = 4;
+	};
+	class A3PL_Fireaxe_Bullet: A3PL_Melee
+	{
+		hit = 5;
+	};
+	class A3PL_High_Pressure_Water_Ball: A3PL_Melee
+	{
+		hit=3;
+		indirectHit=0.5;
+		indirectHitRange=0.5;
+		dangerRadiusBulletClose=0;
+		dangerRadiusHit=0;
+		suppressionRadiusBulletClose=0;
+		suppressionRadiusHit=0;
+		displayName="High Pressure Water";
+		caliber=0.40000001;
+		deflecting=0;
+		audibleFire=45;
+		cost=100;
+		cartridge = "EmptyEffect";
+		typicalSpeed=40; //-Kane I dont believe the "Hit" eventhandler will fire if this is less than the InitSpeed in the magazine (Hit value is valid when projectile moves at this speed)
+		airFriction=-0.08; //-Kane needs to be a negative Value!! -0.0018
+		tracerScale=0;
+		tracerStartTime=0;
+		tracerEndTime=0;
+		muzzleEffect="EmptyEffect";
+		effectFly="A3PL_High_Pressure_Water";//A3PL_High_Pressure_Water
+		explosionEffects = "EmptyEffect";
+		craterEffects = "EmptyEffect";
+		craterWaterEffects = "EmptyEffect";
+		effectsMissile = "EmptyEffect";
+		effectsMissileInit = "EmptyEffect";
+		effectsSmoke = "EmptyEffect";
+		effectsFire = "EmptyEffect";
+		effectFlare = "EmptyEffect";
+		mineJumpEffects = "EmptyEffect";
+		explosionSoundEffect = "EmptyEffect";
+		class HitEffects
+		{
+			Hit_Foliage_green="EmptyEffect";
+			Hit_Foliage_Dead="EmptyEffect";
+			Hit_Foliage_Green_big="EmptyEffect";
+			Hit_Foliage_Palm="EmptyEffect";
+			Hit_Foliage_Pine="EmptyEffect";
+			hitFoliage="EmptyEffect";
+			hitGlass="EmptyEffect";
+			hitGlassArmored="EmptyEffect";
+			hitWood="EmptyEffect";
+			hitMetal="EmptyEffect";
+			hitMetalPlate="EmptyEffect";
+			hitBuilding="EmptyEffect";
+			hitPlastic="EmptyEffect";
+			hitRubber="EmptyEffect";
+			hitTyre="EmptyEffect";
+			hitConcrete="EmptyEffect";
+			hitMan="EmptyEffect";
+			hitGroundSoft="EmptyEffect";
+			hitGroundRed="EmptyEffect";
+			hitGroundHard="EmptyEffect";
+			hitWater="EmptyEffect";
+			hitVirtual="EmptyEffect";
+		};
+		soundImpactDefault1[]={"",1,1,500};
+		soundDefault1[]={"",1,1,500};
+		soundDefault2[]={"",1,1,500};
+		soundDefault3[]={"",1,1,500};
+		soundDefault4[]={"",1,1,500};
+		soundDefault5[]={"",1,1,500};
+		soundDefault6[]={"",1,1,500};
+		soundDefault7[]={"",1,1,500};
+		soundDefault8[]={"",1,1,500};
+		soundGroundSoft1[]={"",1,1,500};
+		soundGroundSoft2[]={"",1,1,500};
+		soundGroundSoft3[]={"",1,1,500};
+		soundGroundSoft4[]={"",1,1,500};
+		soundGroundSoft5[]={"",1,1,500};
+		soundGroundSoft6[]={"",1,1,500};
+		soundGroundSoft7[]={"",1,1,500};
+		soundGroundSoft8[]={"",1,1,500};
+		soundGroundHard1[]={"",1,1,500};
+		soundGroundHard2[]={"",1,1,500};
+		soundGroundHard3[]={"",1,1,500};
+		soundGroundHard4[]={"",1,1,500};
+		soundGroundHard5[]={"",1,1,500};
+		soundGroundHard6[]={"",1,1,500};
+		soundGroundHard7[]={"",1,1,500};
+		soundGroundHard8[]={"",1,1,500};
+		soundGlass1[]={"",1,1,500};
+		soundGlass2[]={"",1,1,500};
+		soundGlass3[]={"",1,1,500};
+		soundGlass4[]={"",1,1,500};
+		soundGlass5[]={"",1,1,500};
+		soundGlass6[]={"",1,1,500};
+		soundGlass7[]={"",1,1,500};
+		soundGlass8[]={"",1,1,500};
+		soundGlassArmored1[]={"",1,1,500};
+		soundGlassArmored2[]={"",1,1,500};
+		soundGlassArmored3[]={"",1,1,500};
+		soundGlassArmored4[]={"",1,1,500};
+		soundGlassArmored5[]={"",1,1,500};
+		soundGlassArmored6[]={"",1,1,500};
+		soundGlassArmored7[]={"",1,1,500};
+		soundGlassArmored8[]={"",1,1,500};
+		soundMetal1[]={"",1,1,500};
+		soundMetal2[]={"",1,1,500};
+		soundMetal3[]={"",1,1,500};
+		soundMetal4[]={"",1,1,500};
+		soundMetal5[]={"",1,1,500};
+		soundMetal6[]={"",1,1,500};
+		soundMetal7[]={"",1,1,500};
+		soundMetal8[]={"",1,1,500};
+		soundVehiclePlate1[]={"",1,1,500};
+		soundVehiclePlate2[]={"",1,1,500};
+		soundVehiclePlate3[]={"",1,1,500};
+		soundVehiclePlate4[]={"",1,1,500};
+		soundVehiclePlate5[]={"",1,1,500};
+		soundVehiclePlate6[]={"",1,1,500};
+		soundVehiclePlate7[]={"",1,1,500};
+		soundVehiclePlate8[]={"",1,1,500};
+		soundWood1[]={"",1,1,500};
+		soundWood2[]={"",1,1,500};
+		soundWood3[]={"",1,1,500};
+		soundWood4[]={"",1,1,500};
+		soundWood5[]={"",1,1,500};
+		soundWood6[]={"",1,1,500};
+		soundWood7[]={"",1,1,500};
+		soundWood8[]={"",1,1,500};
+		soundHitBody1[]={"",1,1,500};
+		soundHitBody2[]={"",1,1,500};
+		soundHitBody3[]={"",1,1,500};
+		soundHitBody4[]={"",1,1,500};
+		soundHitBody5[]={"",1,1,500};
+		soundHitBody6[]={"",1,1,500};
+		soundHitBody7[]={"",1,1,500};
+		soundHitBody8[]={"",1,1,500};
+		soundHitBuilding1[]={"",1,1,500};
+		soundHitBuilding2[]={"",1,1,500};
+		soundHitBuilding3[]={"",1,1,500};
+		soundHitBuilding4[]={"",1,1,500};
+		soundHitBuilding5[]={"",1,1,500};
+		soundHitBuilding6[]={"",1,1,500};
+		soundHitBuilding7[]={"",1,1,500};
+		soundHitBuilding8[]={"",1,1,500};
+		soundHitFoliage1[]={"",1,1,500};
+		soundHitFoliage2[]={"",1,1,500};
+		soundHitFoliage3[]={"",1,1,500};
+		soundHitFoliage4[]={"",1,1,500};
+		soundHitFoliage5[]={"",1,1,500};
+		soundHitFoliage6[]={"",1,1,500};
+		soundHitFoliage7[]={"",1,1,500};
+		soundHitFoliage8[]={"",1,1,500};
+		soundPlastic1[]={"",1,1,500};
+		soundPlastic2[]={"",1,1,500};
+		soundPlastic3[]={"",1,1,500};
+		soundPlastic4[]={"",1,1,500};
+		soundPlastic5[]={"",1,1,500};
+		soundPlastic6[]={"",1,1,500};
+		soundPlastic7[]={"",1,1,500};
+		soundPlastic8[]={"",1,1,500};
+		soundConcrete1[]={"",1,1,500};
+		soundConcrete2[]={"",1,1,500};
+		soundConcrete3[]={"",1,1,500};
+		soundConcrete4[]={"",1,1,500};
+		soundConcrete5[]={"",1,1,500};
+		soundConcrete6[]={"",1,1,500};
+		soundConcrete7[]={"",1,1,500};
+		soundConcrete8[]={"",1,1,500};
+		soundTyre1[]={"",1,1,500};
+		soundTyre2[]={"",1,1,500};
+		soundTyre3[]={"",1,1,500};
+		soundTyre4[]={"",1,1,500};
+		soundTyre5[]={"",1,1,500};
+		soundTyre6[]={"",1,1,500};
+		soundTyre7[]={"",1,1,500};
+		soundTyre8[]={"",1,1,500};
+		soundRubber1[]={"",1,1,500};
+		soundRubber2[]={"",1,1,500};
+		soundRubber3[]={"",1,1,500};
+		soundRubber4[]={"",1,1,500};
+		soundRubber5[]={"",1,1,500};
+		soundRubber6[]={"",1,1,500};
+		soundWater1[]={"",1,1,500};
+		soundWater2[]={"",1,1,500};
+		soundWater3[]={"",1,1,500};
+		soundWater4[]={"",1,1,500};
+		soundWater5[]={"",1,1,500};
+		soundWater6[]={"",1,1,500};
+		soundWater7[]={"",1,1,500};
+		soundWater8[]={"",1,1,500};
+		soundMetalInt1[]={"",1,1,500};
+		soundMetalInt2[]={"",1,1,500};
+		soundMetalInt3[]={"",1,1,500};
+		soundMetalInt4[]={"",1,1,500};
+		soundMetalInt5[]={"",1,1,500};
+		soundMetalInt6[]={"",1,1,500};
+		soundVehiclePlateInt1[]={"",1,1,500};
+		soundVehiclePlateInt2[]={"",1,1,500};
+		soundVehiclePlateInt3[]={"",1,1,500};
+		soundVehiclePlateInt4[]={"",1,1,500};
+		soundVehiclePlateInt5[]={"",1,1,500};
+		soundVehiclePlateInt6[]={"",1,1,500};
+		soundVehiclePlateInt7[]={"",1,1,500};
+		soundVehiclePlateInt8[]={"",1,1,500};
+		soundVehiclePlateInt9[]={"",1,1,500};
+		soundVehiclePlateInt10[]={"",1,1,500};
+		soundVehiclePlateInt11[]={"",1,1,500};
+		soundVehiclePlateInt12[]={"",1,1,500};
+		soundVehiclePlateInt13[]={"",1,1,500};
+		soundVehiclePlateInt14[]={"",1,1,500};
+		soundVehiclePlateInt15[]={"",1,1,500};
+	};
+	class A3PL_Medium_Pressure_Water_Ball: A3PL_High_Pressure_Water_Ball
+	{
+		typicalSpeed=20;
+		airFriction=-0.04;
+		effectFly="A3PL_Medium_Pressure_Water";
+		displayName="Medium Pressure Water";
+	};
+	class A3PL_Low_Pressure_Water_Ball: A3PL_High_Pressure_Water_Ball
+	{
+		typicalSpeed=10; 
+		airFriction=-0.02;
+		effectFly="A3PL_Low_Pressure_Water";
+		displayName="Low Pressure Water";
+	};
+	class A3PL_High_Pressure_Foam_Ball: A3PL_High_Pressure_Water_Ball
+	{
+		effectFly="A3PL_High_Pressure_Foam";
+		displayName="High Pressure Foam";
+	};
+	class A3PL_Medium_Pressure_Foam_Ball: A3PL_Medium_Pressure_Water_Ball
+	{
+		effectFly="A3PL_Medium_Pressure_Foam";
+		displayName="Medium Pressure Foam";
+	};
+	class A3PL_Low_Pressure_Foam_Ball: A3PL_Low_Pressure_Water_Ball
+	{
+		effectFly="A3PL_Low_Pressure_Foam";
+		displayName="Low Pressure Foam";
+	};
+	/*class Water: LaserBombCore
+	{
+		hit = 1;
+		displayName = "Water";
+		indirectHit = 0;
+		indirectHitRange = 1;
+		visibleFire = 0;	// how much is visible when this weapon is fired
+		audibleFire = 0;
+		visibleFireTime = 0;	// how long is it visible
+		explosive = false;
+		cost = 30;
+		airLock = false;
+	};*/
+};
+class CfgGesturesMale 
+{
+	skeletonName = "OFP2_ManSkeleton";
+	class ManActions;
+	class Default;
+	class Actions
+	{
+		class NoActions 
+		{
+			turnSpeed = 0;
+			upDegree = 0;
+			limitFast = 1;
+			useFastMove = 0;
+		};
+	};
+	class States 
+	{
+		class GestureSwing : Default 
+		{
+			file = "\A3PL_Weapons\axe\anim\axe_swing.rtm";
+			looped = 0;
+			speed = 1.28205;
+			mask = "handsWeapon";
+			headBobStrength = 0.2;
+			headBobMode = 2;
+			rightHandIKBeg = 0;
+			rightHandIKEnd = 0;
+		};
+	};
+	class BlendAnims {
+		handsWeapon[] = {"head", 1, "neck1", 1, "neck", 1, "weapon", 1, "LeftShoulder", 1, "LeftArm", 1, "LeftArmRoll", 1, "LeftForeArm", 1, "LeftForeArmRoll", 1, "LeftHand", 1, "LeftHandRing", 1, "LeftHandPinky1", 1, "LeftHandPinky2", 1, "LeftHandPinky3", 1, "LeftHandRing1", 1, "LeftHandRing2", 1, "LeftHandRing3", 1, "LeftHandMiddle1", 1, "LeftHandMiddle2", 1, "LeftHandMiddle3", 1, "LeftHandIndex1", 1, "LeftHandIndex2", 1, "LeftHandIndex3", 1, "LeftHandThumb1", 1, "LeftHandThumb2", 1, "LeftHandThumb3", 1, "RightShoulder", 1, "RightArm", 1, "RightArmRoll", 1, "RightForeArm", 1, "RightForeArmRoll", 1, "RightHand", 1, "RightHandRing", 1, "RightHandPinky1", 1, "RightHandPinky2", 1, "RightHandPinky3", 1, "RightHandRing1", 1, "RightHandRing2", 1, "RightHandRing3", 1, "RightHandMiddle1", 1, "RightHandMiddle2", 1, "RightHandMiddle3", 1, "RightHandIndex1", 1, "RightHandIndex2", 1, "RightHandIndex3", 1, "RightHandThumb1", 1, "RightHandThumb2", 1, "RightHandThumb3", 1, "Spine", 0.2, "Spine1", 0.3, "Spine2", 1, "Spine3", 1};
+	};
+};
+class CfgRecoils
+{
+	A3PL_Melee[] = {0, 0.06, -0.1, 0, 0.1, -0.12, 0.1, 0, 0};
+	A3PL_Taserbase[] = {0,0,0,0.04,"0.036943*(0.5)","0.0134348*(1)",0.08,"0.019755*(0.5)","0.003056*(1)",0.09,0,0,0.14,"-0.003138*(0.5)","-0.0005*(1)",0.08,"-0.001177*(0.5)","-0.000188*(1)",0.12,0,0};
+};
+class CfgMagazines
+{
+	class 16Rnd_9x21_Mag;
+	class 30Rnd_556x45_Stanag;
+	class A3PL_Melee_Base: 16Rnd_9x21_Mag 
+	{
+		scope = 2;
+		ammo = "A3PL_Melee";
+		author = "A3PL Development Team";
+		count = 999999;
+		descriptionShort = "";
+		displayName = "A3PL_Melee_Base";
+		displayNameShort = "";
+		initSpeed = 0.1;///////////////////////
+		mass = 6;
+		maxLeadSpeed = 23;
+		maxThrowHoldTime = 2;
+		maxThrowIntensityCoef = 1.4;
+		minThrowIntensityCoef = 0.3;
+		model = "\A3\weapons_F\ammo\mag_univ.p3d";
+		modelSpecial = "";
+		nameSound = "magazine";
+		picture = "\A3PL_Characters\A3PL_Logo.paa";
+		quickReload = 0;
+		reloadAction = "";
+		selectionFireAnim = "zasleh";
+		simulation = "ProxyMagazines";
+		tracersEvery = 0;
+		type = 16;
+		useAction = 0;
+		useActionTitle = "";
+		value = 1;
+		weight = 0;
+	};
+	class A3PL_Magazine_Base: 16Rnd_9x21_Mag 
+	{
+		scope = 2;
+		ammo = "A3PL_Melee";
+		author = "A3PL Development Team";
+		count = 1000000;
+		descriptionShort = "";
+		displayName = "A3PL_Magazine_Base";
+		displayNameShort = "";
+		initSpeed = 410;
+		mass = 6;
+		picture = "\A3PL_Characters\A3PL_Logo.paa";
+		quickReload = 0;
+		reloadAction = "";
+		simulation = "ProxyMagazines";
+		tracersEvery = 0;
+		type = 16;
+		useAction = 0;
+		useActionTitle = "";
+		weight = 0;
+	};
+	class A3PL_Paintball_Mag: A3PL_Magazine_Base
+	{
+		scope = 2;
+		displayName = "A3PL PaintBalls";
+		model = "\A3PL_weapons\paintball\magazine";
+		picture = "\A3PL_weapons\paintball\data\m_paintballs.paa";
+		ammo = "A3PL_Paintball_Bullet";
+		count = 200;
+		initSpeed = 250;
+		tracersEvery = 0;
+		lastRoundsTracer = 200;
+		descriptionShort = "A3PL Paintballs";
+	};	
+	class A3PL_5rnd_3006: 30Rnd_556x45_Stanag
+	{
+		ammo = "A3PL_3006";
+		count = 5;
+		descriptionshort = "5 Round .30-06 Ball";
+		displayname = "5rnd .30-06";
+		initspeed = 854;
+		lastroundstracer = 0;
+		picture = "\A3\weapons_f\data\UI\m_M24_CA.paa";
+		scope = 2;
+		tracersevery = 0;
+		mass = 8;
+	};
+	class A3PL_TaserMag: A3PL_Magazine_Base
+	{
+		displayName = "X26 Taser Magazine";
+		picture = "\A3PL_Weapons\Taser\tasericon.paa";
+		model = "\A3PL_Weapons\Taser\cartridge.p3d";
+		ammo = "A3PL_TaserBullet";
+		count = 1;
+		initSpeed = 54;
+		mass = 0.5;
+	};
+	class A3PL_FistMag: A3PL_Melee_Base 
+	{
+		displayName = "Melee";
+		descriptionShort = "";
+		ammo = "A3PL_Fist_Bullet";
+	};
+	class A3PL_AxeMag: A3PL_Melee_Base 
+	{
+		displayName = "Axe Durability";
+		descriptionShort = "Used in: Axe";
+		ammo = "A3PL_Axe_Bullet";
+	};
+	class A3PL_GolfMag: A3PL_Melee_Base 
+	{
+		displayName = "Golf Club Mag";
+		descriptionShort = "Used in: Golf Club";
+		ammo = "A3PL_GolfClub_Bullet";
+	};
+	class A3PL_ShankMag: A3PL_Melee_Base 
+	{
+		displayName = "Shank Mag";
+		descriptionShort = "Used in: Shank";
+		ammo = "A3PL_Shank_Bullet";
+	};
+	class A3PL_KnifeMag: A3PL_Melee_Base 
+	{
+		displayName = "Knife Mag";
+		descriptionShort = "Used in: Knife";
+		ammo = "A3PL_Knife_Bullet";
+	};
+	class A3PL_MacheteMag: A3PL_Melee_Base 
+	{
+		displayName = "Machete Mag";
+		descriptionShort = "Used in: Machete";
+		ammo = "A3PL_Machete_Bullet";
+	};
+	class A3PL_ShovelMag: A3PL_Melee_Base 
+	{
+		displayName = "Shovel Durability";
+		descriptionShort = "Used in: Shovel";
+		ammo = "A3PL_Shovel_Bullet";
+		count = 3750;//125
+	};
+	class A3PL_Excavator_ShovelMag: A3PL_Melee_Base 
+	{
+		displayName = "Excavator Bucket";
+		descriptionShort = "Used in: Shovel";
+		ammo = "A3PL_Shovel_Bullet";
+		quickReload = 1;
+	};
+	class A3PL_PickAxeMag: A3PL_Melee_Base 
+	{
+		displayName = "PickAxe Durability";
+		descriptionShort = "Used in: PickAxe";
+		ammo = "A3PL_PickAxe_Bullet";
+		count = 3000;//50
+	};
+	class A3PL_JackhammerMag: A3PL_Melee_Base 
+	{
+		displayName = "Jackhammer";
+		descriptionShort = "Used in: Jackhammer";
+		ammo = "A3PL_PickAxe_Bullet";
+		quickReload = 1;
+	};
+	class A3PL_BucketMag: A3PL_Melee_Base 
+	{
+		displayName = "Bucket";
+		descriptionShort = "Used in: Bucket";
+		ammo = "A3PL_Shovel_Bullet";
+		quickReload = 1;
+	};
+	class A3PL_FireaxeMag: A3PL_Melee_Base 
+	{
+		displayName = "Fireaxe Durability";
+		descriptionShort = "Used in: Fireaxe";
+		ammo = "A3PL_Fireaxe_Bullet";
+	};
+	class A3PL_High_Pressure_Water_Mag: A3PL_Magazine_Base
+	{
+		displayName="High Pressure Water";
+		descriptionShort="High Pressure Water";
+		count=1000;
+		lastRoundsTracer=0;
+		tracersEvery=0;
+		timeToLive = 20;
+		initSpeed=80; //-Kane 40 m/s init original 280
+		ammo="A3PL_High_Pressure_Water_Ball";
+	};
+	class A3PL_Medium_Pressure_Water_Mag: A3PL_High_Pressure_Water_Mag
+	{
+		displayName="Medium Pressure Water";
+		initSpeed=40;
+		ammo="A3PL_Medium_Pressure_Water_Ball";
+	};
+	class A3PL_Low_Pressure_Water_Mag: A3PL_High_Pressure_Water_Mag
+	{
+		displayName="Low Pressure Water";
+		initSpeed=20;
+		ammo="A3PL_Low_Pressure_Water_Ball";
+	};
+	class A3PL_High_Pressure_Foam_Mag: A3PL_High_Pressure_Water_Mag
+	{
+		displayName="Low Pressure Foam";
+		ammo="A3PL_High_Pressure_Foam_Ball";
+	};
+	class A3PL_Medium_Pressure_Foam_Mag: A3PL_Medium_Pressure_Water_Mag
+	{
+		displayName="Medium Pressure Foam";
+		ammo="A3PL_Medium_Pressure_Foam_Ball";
+	};
+	class A3PL_Low_Pressure_Foam_Mag: A3PL_Low_Pressure_Water_Mag
+	{
+		displayName="Low Pressure Foam";
+		ammo="A3PL_Low_Pressure_Foam_Ball";
+	};
+};
+class CfgWeapons
+{
+	class Rifle;
+	class Rifle_Base_F: Rifle
+	{
+		class WeaponSlotsInfo;
+		class GunParticles;
+	};
+	class Pistol_Base_F;
+	class A3PL_TestGun: Pistol_Base_F
+	{
+		displayName = "TestGun";
+	};
+	class HMG_M2;
+	class A3PL_RifleBase: Rifle_Base_F
+	{
+		scope = 2;
+		author = "ArmA 3 Project Life";
+		model="";
+		picture = "\A3PL_Characters\A3PL_Logo.paa";
+		discreteDistance[] = {};
+		class Library{libTextDesc = "";};
+		class BaseSoundModeType;
+		class WeaponSlotsInfo
+ 		{
+ 			mass = 1;
+ 			class MuzzleSlot: SlotInfo{compatibleItems[] = {};};
+ 			class CowsSlot: CowsSlot {compatibleItems[] = {};};
+ 			class PointerSlot: PointerSlot {compatibleItems[] = {};};
+ 			allowedslots[] = {701,801,901};
+ 		};
+	};
+	class A3PL_CZ550: A3PL_RifleBase
+	{
+		magazines[] = {"A3PL_5rnd_3006"};
+		recoil = "recoil_1903a1";
+		maxRecoilSway = 0.0125;
+		swayDecaySpeed = 1.25;
+		maxZeroing = 1600;
+		author = "A3PL";
+		scope = 2;
+		hasBipod = 0;
+		cursor = "srifle";
+		cursorAim = "EmptyCursor";
+		model = "A3PL_Weapons\huntingRifle\A3PL_Huntingrifle";
+		reloadAction = "GestureReloadLRR";
+		descriptionShort = "CZ550";
+		drySound[] = {"A3\Sounds_F\arsenal\weapons\LongRangeRifles\M320\M320_dry", 0.501187, 1, 20};
+		reloadMagazineSound[] = {"A3\Sounds_F\arsenal\weapons\LongRangeRifles\M320\M320_reload", 1, 1, 10};
+		inertia = 0.47;
+		dexterity = 1.1977026;
+		aimTransitionSpeed = 0.83839184;
+		//picture = "\A3\Weapons_F\LongRangeRifles\M320\Data\UI\gear_M320_LRR_X_CA.paa";
+		hiddenSelections[] = {};
+		hiddenSelectionsTextures[] = {};
+		UiPicture = "\A3\weapons_f\data\UI\icon_regular_CA.paa";
+		displayName = "CZ550 (Sniper)";
+		discretedistance[] = {90,180,270,360,450,540,630,720,810,900,990,1010,1180,1280,1370,1460,1550,1640,1740,1810};
+		discretedistanceinitindex = 2;
+		handAnim[] = {"OFP2_ManSkeleton","\A3PL_Weapons\huntingrifle\data\M24.rtm"};
+		class WeaponSlotsInfo: WeaponSlotsInfo
+		{
+			mass = 104;
+			class MuzzleSlot{};
+			class CowsSlot{};
+			class PointerSlot{};
+			/*class CowsSlot: CowsSlot
+			{
+				scope = 2;
+				access = 1;
+				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
+				displayName = "Scope";
+				compaitableItems[] = {"A3PL_CZ550_Scope"};
+			};*/
+		};
+		class OpticsModes
+		{
+			class Snip
+			{
+				discretedistance[] = {90,180,270,360,450,540,630,720,810,900,990,1010,1180,1280,1370,1460,1550,1640,1740,1810};
+				discretedistanceinitindex = 2;
+				distancezoommax = 1810;
+				distancezoommin = 90;
+				memorypointcamera = "eye";
+				opticsdisableperipherialvision = 1;
+				opticsflare = 1;
+				opticsid = 1;
+				modelOptics = "\A3\Weapons_F\empty";
+				opticsppeffects[] = {"OpticsCHAbera1","OpticsBlur1"};
+				opticszoominit = 0.039385;
+				opticszoommax = 0.039385;
+				opticszoommin = 0.039385;
+				usemodeloptics = 1;
+				visionmode[] = {"Normal"};
+			};
+		};
+		class GunParticles
+		{
+			class FirstEffect
+			{
+				effectName = "SniperCloud";
+				positionName = "Usti hlavne";
+				directionName = "Konec hlavne";
+			};
+		};
+		bullet1[] = {"A3\sounds_f\weapons\shells\5_56\metal_556_01.wss",0.1,1,15};
+		bullet2[] = {"A3\sounds_f\weapons\shells\5_56\metal_556_02.wss",0.1,1,15};
+		bullet3[] = {"A3\sounds_f\weapons\shells\5_56\metal_556_03.wss",0.177828,1,15};
+		bullet4[] = {"A3\sounds_f\weapons\shells\5_56\metal_556_04.wss",0.177828,1,15};
+		bullet5[] = {"A3\sounds_f\weapons\shells\5_56\asphlat_556_01.wss",0.1,1,15};
+		bullet6[] = {"A3\sounds_f\weapons\shells\5_56\asphlat_556_02.wss",0.1,1,15};
+		bullet7[] = {"A3\sounds_f\weapons\shells\5_56\asphlat_556_03.wss",0.1,1,15};
+		bullet8[] = {"A3\sounds_f\weapons\shells\5_56\asphlat_556_04.wss",0.1,1,15};
+		bullet9[] = {"A3\sounds_f\weapons\shells\5_56\grass_556_01.wss",0.01,1,15};
+		bullet10[] = {"A3\sounds_f\weapons\shells\5_56\grass_556_02.wss",0.01,1,15};
+		bullet11[] = {"A3\sounds_f\weapons\shells\5_56\grass_556_03.wss",0.01,1,15};
+		bullet12[] = {"A3\sounds_f\weapons\shells\5_56\grass_556_04.wss",0.01,1,15};
+		soundBullet[] = {"bullet1",0.083,"bullet2",0.083,"bullet3",0.083,"bullet4",0.083,"bullet5",0.083,"bullet6",0.083,"bullet7",0.083,"bullet8",0.083,"bullet9",0.083,"bullet10",0.083,"bullet11",0.083,"bullet12",0.083};
+		modes[] = {"Single"};
+		class Single: Mode_SemiAuto
+		{
+			sounds[] = {"StandardSound"};
+			class BaseSoundModeType
+			{
+				weaponSoundEffect = "DefaultRifle";
+				closure1[] = {"A3\Sounds_F\arsenal\weapons\LongRangeRifles\M320\M320_closure_01", 1.77828, 1, 10};
+				closure2[] = {"A3\Sounds_F\arsenal\weapons\LongRangeRifles\M320\M320_closure_01", 1.77828, 1, 10};
+				soundClosure[] = {"closure1",0.5,"closure2",0.5};
+			};
+			class StandardSound: BaseSoundModeType
+			{
+				begin1[] = {"A3\Sounds_F\arsenal\weapons\LongRangeRifles\M320\M320_short_01", 2.51189, 1, 2200};
+				begin2[] = {"A3\Sounds_F\arsenal\weapons\LongRangeRifles\M320\M320_short_02", 2.51189, 1, 2200};
+				soundBegin[] = {"begin1", 0.5, "begin2", 0.5};
+				class SoundTails
+				{
+					class TailForest
+					{
+						sound[] = {"A3\Sounds_F\arsenal\weapons\LongRangeRifles\M320\M320_tail_forest", 1, 1, 2200};
+						frequency = 1;
+						volume = "(1-interior/1.4)*forest";
+					};
+					class TailHouses
+					{
+						sound[] = {"A3\Sounds_F\arsenal\weapons\LongRangeRifles\M320\M320_tail_houses", 1, 1, 2200};
+						frequency = 1;
+						volume = "(1-interior/1.4)*houses";
+					};
+					class TailInterior
+					{
+						sound[] = {"A3\Sounds_F\arsenal\weapons\LongRangeRifles\M320\M320_tail_interior", 1.99526, 1, 2200};
+						frequency = 1;
+						volume = "interior";
+					};
+					class TailMeadows
+					{
+						sound[] = {"A3\Sounds_F\arsenal\weapons\LongRangeRifles\M320\M320_tail_meadows", 1, 1, 2200};
+						frequency = 1;
+						volume = "(1-interior/1.4)*(meadows/2 max sea/2)";
+					};
+					class TailTrees
+					{
+						sound[] = {"A3\Sounds_F\arsenal\weapons\LongRangeRifles\M320\M320_tail_trees", 1, 1, 2200};
+						frequency = 1;
+						volume = "(1-interior/1.4)*trees";
+					};
+				};
+				soundsetshot[] = {"M320_Shot_SoundSet", "M320_Tail_SoundSet", "M320_InteriorTail_SoundSet"};
+			};
+			reloadTime = 1.6666666;
+			dispersion = 0.000436332;
+			aiRateOfFire = 4;
+			aiRateOfFireDistance = 500;
+			aiRateOfFireDispersion = 3;
+			minRange = 150;
+			minRangeProbab = 0.2;
+			midRange = 500;
+			midRangeProbab = 0.7;
+			maxRange = 1000;
+			maxRangeProbab = 0.05;
+		};
+		class far_optic1: Single
+		{
+			showToPlayer = 0;
+			minRange = 150;
+			minRangeProbab = 0.2;
+			midRange = 500;
+			midRangeProbab = 0.7;
+			maxRange = 1500;
+			maxRangeProbab = 0.4;
+			aiRateOfFire = 3;
+			aiRateOfFireDistance = 500;
+			requiredOpticType = 1;
+		};
+		class medium_optic2: Single
+		{
+			showToPlayer = 0;
+			minRange = 250;
+			minRangeProbab = 0.2;
+			midRange = 750;
+			midRangeProbab = 0.7;
+			maxRange = 1000;
+			maxRangeProbab = 0.4;
+			aiRateOfFire = 5;
+			aiRateOfFireDistance = 1000;
+			requiredOpticType = 2;
+		};
+		class far_optic2: far_optic1
+		{
+			minRange = 500;
+			minRangeProbab = 0.2;
+			midRange = 1200;
+			midRangeProbab = 0.7;
+			maxRange = 2100;
+			maxRangeProbab = 0.3;
+			aiRateOfFire = 7;
+			aiRateOfFireDistance = 1000;
+			requiredOpticType = 2;
+		};
+		class Library
+		{
+			libTextDesc = "The CZ-550 is a bolt-action hunting rifle series manufactured by Česká zbrojovka Uherský Brod. The CZ 550 series is available with a medium or magnum sized action. The CZ 550 rifle resembles the Mauser 98 rifle series, though it is not an exact copy.";
+		};
+		aiDispersionCoefY = 10;
+		aiDispersionCoefX = 8;
+	};
+	class A3PL_Paintball_Marker: A3PL_RifleBase
+	{
+		scope = 2;
+		displayName = "A3PL paintball marker";
+		model = "\A3PL_weapons\paintball\A3PL_PaintballGun";
+		picture = "\A3PL_weapons\paintball\data\w_paintball.paa";
+		UiPicture = "\A3\Weapons_F\data\UI\icon_regular_CA.paa";
+		hiddenSelections[] = {"camo0"};
+		hiddenSelectionsTextures[] = {"\A3PL_weapons\paintball\data\paintball_marker_co.paa"};		
+		weaponInfoType = "RscWeaponZeroing";
+		class WeaponSlotsInfo: WeaponSlotsInfo
+		{
+			mass = 50;
+		};
+		magazines[] = {"A3PL_Paintball_Mag"};
+		reloadAction = "GestureReloadMX";
+		discreteDistanceInitIndex = 0;
+		maxRecoilSway = 0.0125;
+		swayDecaySpeed = 1.25;
+		class GunParticles {};
+		opticsZoomMin = 0.375;
+		opticsZoomMax = 1.1;
+		opticsZoomInit = 0.75;
+		distanceZoomMin = 300;
+		distanceZoomMax = 300;
+		descriptionShort = "A3PL PaintBall marker";
+		handAnim[] = {"OFP2_ManSkeleton","\A3PL_Animations\paintball_hold.rtm"};
+		dexterity = 1.8;
+		caseless[] = {"",1,1,1};
+		soundBullet[] = {"caseless",1};
+		selectionFireAnim = "muzzleFlash";
+		modes[] = {"Single"};
+		class Single: Mode_SemiAuto
+		{
+			sounds[] = {"StandardSound"};
+			class BaseSoundModeType
+			{
+				weaponSoundEffect = "DefaultRifle";
+				closure1[] = {};
+				closure2[] = {};
+				soundClosure[] = {};
+			};			
+			class StandardSound: BaseSoundModeType
+			{
+				begin1[] = {"A3PL_weapons\paintball\data\paintball_shoot.ogg",1.0,1,100};
+				soundBegin[] = {"begin1",1};
+			};
+		
+			begin1[] = {"A3PL_weapons\paintball\data\paintball_shoot.ogg",1.4125376,1,1200};
+			begin2[] = {"A3PL_weapons\paintball\data\paintball_shoot.ogg",1.4125376,1,1200};
+			soundBegin[] = {"begin1",0.5,"begin2",0.5};
+			closure1[] = {"A3PL_weapons\paintball\data\paintball_shoot.ogg",1.4125376,1,10};
+			closure2[] = {"A3PL_weapons\paintball\data\paintball_shoot.ogg",1.4125376,1,10};
+			soundClosure[] = {"closure1",0.5,"closure2",0.5};
+			weaponSoundEffect = "DefaultRifle";
+			reloadTime = 0.096;
+			dispersion = 0.00087;
+			recoil="recoil_empty";
+			recoilProne = "recoil_empty";
+			minRange = 2;
+			minRangeProbab = 0.5;
+			midRange = 200;
+			midRangeProbab = 0.7;
+			maxRange = 400;
+			maxRangeProbab = 0.3;
+		};
+		aiDispersionCoefY = 6.0;
+		aiDispersionCoefX = 4.0;
+		drySound[] = {};
+		reloadMagazineSound[] = {"A3PL_weapons\paintball\data\paintball_reload.ogg",0.39810717,1,30};
+	};
+	class A3PL_Paintball_Marker_Camo: A3PL_Paintball_Marker
+	{
+		displayName = "A3PL paintball marker (camo)";
+		hiddenSelectionsTextures[] = {"\A3PL_weapons\paintball\data\paintball_marker_camo_co.paa"};
+	};
+	class A3PL_Paintball_Marker_PinkCamo: A3PL_Paintball_Marker
+	{
+		displayName = "A3PL paintball marker (Pink camo)";
+		hiddenSelectionsTextures[] = {"\A3PL_weapons\paintball\data\paintball_marker_pinkcamo_co.paa"};
+	};	
+	class A3PL_Paintball_Marker_DigitalBlue: A3PL_Paintball_Marker
+	{
+		displayName = "A3PL paintball marker (Digital blue)";
+		hiddenSelectionsTextures[] = {"\A3PL_weapons\paintball\data\paintball_marker_digitalblue_co.paa"};
+	};
+	class A3PL_Paintball_Marker_Green: A3PL_Paintball_Marker
+	{
+		displayName = "A3PL paintball marker (Green)";
+		hiddenSelectionsTextures[] = {"\A3PL_weapons\paintball\data\paintball_marker_green_co.paa"};
+	};
+	class A3PL_Paintball_Marker_Purple: A3PL_Paintball_Marker
+	{
+		displayName = "A3PL paintball marker (Purple)";
+		hiddenSelectionsTextures[] = {"\A3PL_weapons\paintball\data\paintball_marker_purple_co.paa"};
+	};
+	class A3PL_Paintball_Marker_Red: A3PL_Paintball_Marker
+	{
+		displayName = "A3PL paintball marker (Red)";
+		hiddenSelectionsTextures[] = {"\A3PL_weapons\paintball\data\paintball_marker_red_co.paa"};
+	};
+	class A3PL_Paintball_Marker_Yellow: A3PL_Paintball_Marker
+	{
+		displayName = "A3PL paintball marker (Yellow)";
+		hiddenSelectionsTextures[] = {"\A3PL_weapons\paintball\data\paintball_marker_yellow_co.paa"};
+	};
+	class A3PL_PistolBase: Pistol_Base_F
+	{
+		scope = 2;
+		author = "ArmA 3 Project Life";
+		model="";
+		picture = "\A3PL_Characters\A3PL_Logo.paa";
+		discreteDistance[] = {};
+		class Library{libTextDesc = "";};
+		class BaseSoundModeType;
+		class WeaponSlotsInfo
+ 		{
+ 			mass = 1;
+ 			class MuzzleSlot {};
+ 			class CowsSlot {};
+ 			class PointerSlot {};
+ 			allowedslots[] = {701,801,901};
+ 		};
+	};
+	class MeleePistol: A3PL_PistolBase
+	{
+		burst=1;
+		canDrop = 0;
+		optics = 0;
+		autoReload=1;
+		autofire=1;
+		modelOptics = "-";
+		modes[] = {"Single"};
+		magazines[] = {"A3PL_Melee_Base"};
+		showToPlayer=0;
+		showSwitchAction=0;
+		dispersion = 0;
+		sounds[] = {"StandardSound"};
+		cursor = "EmptyCursor";
+		cursoraim = "cursorAimOn";
+		cursorSize = 1;
+		discreteDistance[] = {};		
+		caseless[] = {};
+		soundBullet[] = {"caseless",1};
+		drySound[] = {"",0.562341,1,10};
+		reloadMagazineSound[] = {"",1,1,10};
+		changeFiremodeSound[] = {"",0.177828,1,5};
+		soundContinuous = 0;
+		sound[] = {};
+		soundBegin[] = {"sound",1};
+		soundBeginWater[] = {"sound",1};
+		soundClosure[] = {"sound",1};
+		soundEnd[] = {"sound",1};
+		soundLoop[] = {"sound",1};
+		weaponSoundEffect = "";
+		soundBurst = 1;
+		reloadSound[] = {"",1,1};
+		emptySound[] = {"",1,1};
+		fireLightDuration = 0;
+		fireLightIntensity = 0;
+		fireLightDiffuse[] = {0,0,0};
+		fireLightAmbient[] = {0,0,0};
+		class GunParticles {};
+		class GunFire: WeaponFireGun
+		{
+			access = 0;
+			cloudletDuration = 0;
+			cloudletAnimPeriod = 0;
+			cloudletSize = 0;
+			cloudletAlpha = 0;
+			cloudletGrowUp = 0;
+			cloudletFadeIn = 0;
+			cloudletFadeOut = 0;
+			cloudletAccY = 0;
+			cloudletMinYSpeed = 0;
+			cloudletMaxYSpeed = 0;
+			cloudletShape = "";
+			cloudletColor[] = {0,0,0,0};
+			cloudletDensityCoef = 0;
+			interval = 0;
+			size = 0;
+			sourceSize = 0;
+			timeToLive = 0;
+			initT = 0;
+			deltaT = 0;
+		};
+		class GunClouds: GunFire {};
+		class BaseSoundModeType: BaseSoundModeType
+		{
+			weaponSoundEffect = "DefaultRifle";
+			closure1[] = {"",1.0351422,1,30};
+			closure2[] = {"",1.0351422,1.1,30};
+			soundClosure[] = {"closure1",0.5,"closure2",0.5};
+		};
+		class StandardSound: BaseSoundModeType
+		{
+			begin1[] = {"",0.95,1,1000};
+			soundBegin[] = {"begin1",1};
+		};
+		class SilencedSound: BaseSoundModeType
+		{
+			begin1[] = {"",0.56234133,1,600};
+			begin2[] = {"",0.56234133,1,600};
+			soundBegin[] = {"begin1",0.5,"begin2",0.5};
+		};
+		class Single: A3PL_MeleeSingle 
+		{
+			recoil = "A3PL_Melee";
+			dispersion = 0;
+			reloadTime = 1;
+		};
+	};
+	class MeleeRifle: A3PL_RifleBase
+	{
+		burst=1;
+		canDrop = 0;
+		optics = 0;
+		autoReload=1;
+		autofire=1;
+		modelOptics = "-";
+		modes[] = {"Single"};
+		magazines[] = {"A3PL_Melee_Base"};
+		showToPlayer=0;
+		showSwitchAction=0;
+		dispersion = 0;
+		sounds[] = {"StandardSound"};
+		cursor = "EmptyCursor";
+		cursoraim = "cursorAimOn";
+		cursorSize = 1;	
+		discreteDistance[] = {};
+		caseless[] = {};
+		soundBullet[] = {"caseless",1};
+		drySound[] = {"",0.562341,1,10};
+		reloadMagazineSound[] = {"",1,1,10};
+		changeFiremodeSound[] = {"",0.177828,1,5};
+		soundContinuous = 0;
+		sound[] = {};
+		soundBegin[] = {"sound",1};
+		soundBeginWater[] = {"sound",1};
+		soundClosure[] = {"sound",1};
+		soundEnd[] = {"sound",1};
+		soundLoop[] = {"sound",1};
+		weaponSoundEffect = "";
+		soundBurst = 1;
+		reloadSound[] = {"",1,1};
+		emptySound[] = {"",1,1};
+		fireLightDuration = 0;
+		fireLightIntensity = 0;
+		fireLightDiffuse[] = {0,0,0};
+		fireLightAmbient[] = {0,0,0};
+		class GunParticles {};
+		class GunFire: WeaponFireGun
+		{
+			access = 0;
+			cloudletDuration = 0;
+			cloudletAnimPeriod = 0;
+			cloudletSize = 0;
+			cloudletAlpha = 0;
+			cloudletGrowUp = 0;
+			cloudletFadeIn = 0;
+			cloudletFadeOut = 0;
+			cloudletAccY = 0;
+			cloudletMinYSpeed = 0;
+			cloudletMaxYSpeed = 0;
+			cloudletShape = "";
+			cloudletColor[] = {0,0,0,0};
+			cloudletDensityCoef = 0;
+			interval = 0;
+			size = 0;
+			sourceSize = 0;
+			timeToLive = 0;
+			initT = 0;
+			deltaT = 0;
+		};
+		class GunClouds: GunFire {};
+		class BaseSoundModeType: BaseSoundModeType
+		{
+			weaponSoundEffect = "DefaultRifle";
+			closure1[] = {"",1.0351422,1,30};
+			closure2[] = {"",1.0351422,1.1,30};
+			soundClosure[] = {"closure1",0.5,"closure2",0.5};
+		};
+		class StandardSound: BaseSoundModeType
+		{
+			begin1[] = {"",0.95,1,1000};
+			soundBegin[] = {"begin1",1};
+		};
+		class SilencedSound: BaseSoundModeType
+		{
+			begin1[] = {"",0.56234133,1,600};
+			begin2[] = {"",0.56234133,1,600};
+			soundBegin[] = {"begin1",0.5,"begin2",0.5};
+		};
+		class Single: A3PL_MeleeSingle 
+		{
+			recoil = "A3PL_Melee";
+			dispersion = 0;
+			reloadTime = 1;
+		};
+		class Machinery_Pickaxe: A3PL_Machinery_Mode 
+		{
+			recoil = "A3PL_Melee";
+			dispersion = 0;
+			reloadTime = 0.2;
+		};
+		class Machinery_Bucket: A3PL_Machinery_Mode 
+		{
+			recoil = "A3PL_Melee";
+			dispersion = 0;
+			reloadTime = 0.2;
+			burst = 8;
+		};
+	};
+	class A3PL_Taser: A3PL_PistolBase
+	{
+		scope = 2;
+		model = "\A3PL_Weapons\Taser\A3PL_Taser.p3d";
+		picture = "\A3PL_Weapons\Taser\tasericon.paa";
+		magazines[] = {"A3PL_TaserMag"};
+		displayname = "X26 Taser";
+		descriptionShort = "Taser";
+		class Library{libTextDesc = "ArmA 3 Project Life - Taser";};
+		reloadTime = 0.13;
+		soundContinuous = 0;
+		dispersion = 0.008;
+		sounds[] = {"StandardSound"};
+		sound[] = {"",1,1};
+		soundBegin[] = {"sound",1};
+		soundBeginWater[] = {"sound",1};
+		soundClosure[] = {"sound",1};
+		soundEnd[] = {"sound",1};
+		soundLoop[] = {"sound",1};
+		bullet1[] = {"A3\sounds_f\dummysound",1,1,15};
+		bullet2[] = {"A3\sounds_f\dummysound",1,1,15};
+		bullet3[] = {"A3\sounds_f\dummysound",1,1,15};
+		bullet4[] = {"A3\sounds_f\dummysound",1,1,15};
+		bullet5[] = {"A3\sounds_f\dummysound",1,1,15};
+		bullet6[] = {"A3\sounds_f\dummysound",1,1,15};
+		bullet7[] = {"A3\sounds_f\dummysound",1,1,15};
+		bullet8[] = {"A3\sounds_f\dummysound",1,1,15};
+		bullet9[] = {"A3\sounds_f\dummysound",1,1,15};
+		bullet10[] = {"A3\sounds_f\dummysound",1,1,15};
+		bullet11[] = {"A3\sounds_f\dummysound",1,1,15};
+		bullet12[] = {"A3\sounds_f\dummysound",1,1,15};
+		soundBullet[] = {"bullet1",0.083,"bullet2",0.083,"bullet3",0.083,"bullet4",0.083,"bullet5",0.083,"bullet6",0.083,"bullet7",0.083,"bullet8",0.083,"bullet9",0.083,"bullet10",0.083,"bullet11",0.083,"bullet12",0.083};
+		class BaseSoundModeType
+		{
+			closure1[] = {"",1.03514,1,10};
+			closure2[] = {"",1.03514,1.1,10};
+			soundClosure[] = {"closure1",0.5,"closure2",0.5};
+			weaponSoundEffect = "DefaultRifle";
+		};
+		class StandardSound
+		{
+			begin1[] = {"A3PL_Weapons\Taser\sounds\fired.ogg",5,1,700};
+			closure1[] = {"",1.03514,1,10};
+			closure2[] = {"",1.03514,1.1,10};
+			soundBegin[] = {"begin1",0.33};
+			soundClosure[] = {"closure1",0.5,"closure2",0.5};
+			weaponSoundEffect = "DefaultRifle";
+		};
+		class SilencedSound: BaseSoundModeType
+		{
+			begin1[] = {"",0.56234133,1,600};
+			begin2[] = {"",0.56234133,1,600};
+			soundBegin[] = {"begin1",0.5,"begin2",0.5};
+		};
+		class Single: Mode_SemiAuto 
+		{
+			recoil = "recoil_pistol_heavy";
+			recoilProne = "recoil_prone_pistol_heavy";
+			dispersion = 0.008;
+			reloadTime = 0.13;
+			begin1[] = {"A3PL_Weapons\Taser\sounds\fired.ogg",5,1,700};
+			closure1[] = {"",1.03514,1,10};
+			closure2[] = {"",1.03514,1.1,10};
+			soundBegin[] = {"begin1",0.33};
+			soundClosure[] = {"closure1",0.5,"closure2",0.5};
+			class BaseSoundModeType
+			{
+				closure1[] = {"",1.03514,1,10};
+				closure2[] = {"",1.03514,1.1,10};
+				soundClosure[] = {"closure1",0.5,"closure2",0.5};
+				weaponSoundEffect = "DefaultRifle";
+			};
+			class StandardSound
+			{
+				begin1[] = {"A3PL_Weapons\Taser\sounds\fired.ogg",5,1,700};
+				closure1[] = {"",1.03514,1,10};
+				closure2[] = {"",1.03514,1.1,10};
+				soundBegin[] = {"begin1",0.33};
+				soundClosure[] = {"closure1",0.5,"closure2",0.5};
+				weaponSoundEffect = "DefaultRifle";
+			};
+			class SilencedSound: BaseSoundModeType
+			{
+				begin1[] = {"",0.56234133,1,600};
+				begin2[] = {"",0.56234133,1,600};
+				soundBegin[] = {"begin1",0.5,"begin2",0.5};
+			};
+		};
+		reloadMagazineSound[] = {"A3PL_Weapons\Taser\sounds\reload.wav",0.56234133,1,30};
+		recoil = "recoil_pistol_heavy";
+		recoilProne = "recoil_prone_pistol_heavy";
+		hit = 6;
+		inertia = 0.1;
+		dexterity = 1.8;
+		class WeaponSlotsInfo: WeaponSlotsInfo
+		{
+			mass = 2;
+			class CowsSlot {};
+			class MuzzleSlot {};
+		};
+		cursor = "A3PL_Weapons\Taser\taser_dot.paa";
+		cursoraim = "EmptyCursor";
+		cursorSize = 1;	
+		class FlashLight
+		{
+			color[] = {7000,7500,10000};
+			ambient[] = {6,9,9};
+			intensity = 2;
+			size = 1;
+			innerAngle = 30;
+			outerAngle = 80;
+			coneFadeCoef = 5;
+			position = "flash_dir";
+			direction = "flash";
+			useFlare = 1;
+			flareSize = 0.65;
+			flareMaxDistance = "600";
+			dayLight = 1;
+			class Attenuation
+			{
+				start = 0.5;
+				constant = 0;
+				linear = 0;
+				quadratic = 1;
+				hardLimitStart = 200;
+				hardLimitEnd = 300;
+			};
+			scale[] = {0};
+		};
+	};
+	class A3PL_Golf_Club: MeleePistol
+	{
+		scope = 2;
+		model = "\A3PL_Weapons\Golf\A3PL_GolfDriver.p3d";
+		magazines[] = {"A3PL_GolfMag"};
+		displayname = "A3PL Golf Driver";
+		reloadTime = 0.5;
+	};
+	class A3PL_FireAxe: MeleeRifle
+	{
+		scope = 2;
+		model = "\A3PL_Weapons\axe\A3PL_Axe";
+		picture = "\a3pl_weapons\axe\textures\axe_icon.paa";
+		displayName = "Hache";
+		magazines[] = {"A3PL_FireaxeMag"};
+		handAnim[] = {"OFP2_ManSkeleton", "\A3PL_Weapons\axe\anim\axe_hold.rtm"};
+		class Library {libTextDesc = "Fire Axe";};
+		descriptionShort = "Fire Axe";
+	};
+	class A3PL_Shovel: MeleePistol
+	{
+		scope = 2;
+		model = "\A3PL_Weapons\axe\A3PL_Shovel";
+		displayName = "Pelle";
+		magazines[] = {"A3PL_ShovelMag"};
+		handAnim[] = {"OFP2_ManSkeleton", "\A3PL_Weapons\axe\anim\axe_hold.rtm"};
+		class Library {libTextDesc = "Shovel";};		
+	};	
+	class A3PL_Pickaxe: MeleeRifle
+	{
+		scope = 2;
+		model = "\A3PL_Weapons\axe\A3PL_Pickaxe";
+		displayName = "Pioche";
+		magazines[] = {"A3PL_PickAxeMag"};
+		handAnim[] = {"OFP2_ManSkeleton", "\A3PL_Weapons\axe\anim\axe_hold.rtm"};
+	};
+	class A3PL_Machinery_Pickaxe: MeleeRifle
+	{
+		model = "\A3PL_Weapons\axe\A3PL_Pickaxe";
+		displayName = "Jackhammer";
+		magazines[] = {"A3PL_JackhammerMag"};
+		handAnim[] = {"OFP2_ManSkeleton", "\A3PL_Weapons\axe\anim\axe_hold.rtm"};
+		modes[] = {"Machinery_Pickaxe"};
+	};
+	class A3PL_Machinery_Bucket: MeleeRifle
+	{
+		model = "\A3PL_Weapons\axe\A3PL_Pickaxe";
+		displayName = "Bucket";
+		magazines[] = {"A3PL_BucketMag"};
+		handAnim[] = {"OFP2_ManSkeleton", "\A3PL_Weapons\axe\anim\axe_hold.rtm"};
+		modes[] = {"Machinery_Bucket"};
+	};
+	class A3PL_High_Pressure: A3PL_PistolBase
+	{
+		scope = 2;
+		author="Jonzie";
+		model="\A3PL_Weapons\Nozzle\A3PL_FireNozzle.p3d";
+		magazines[]={"A3PL_High_Pressure_Water_Mag","A3PL_Medium_Pressure_Water_Mag","A3PL_Low_Pressure_Water_Mag"};
+		displayname="Branche";
+		class Library {libTextDesc = "Pistol Grip Branche";};
+		fireLightIntensity=0;
+		fireLightDuration=0;
+		drySound[]={"",1,1,30};
+		reloadMagazineSound[]={"",1,1,30};
+		modes[]={"Single"};
+		class Single: Mode_FullAuto
+		{
+			sounds[]={"StandardSound","SilencedSound"};
+			class BaseSoundModeType
+			{
+				closure1[]={"",0.12589253,1,30};
+				closure2[]={"",0.12589253,1,30};
+				soundClosure[]={"closure1",0.5,"closure2",0.5};
+			};
+			class StandardSound: BaseSoundModeType
+			{
+				begin1[]={"",1,1,600};
+				begin2[]={"",1,1,600};
+				begin3[]={"",1,1,600};
+				soundBegin[]={"begin1",0.33000001,"begin2",0.33000001,"begin3",0.34};
+				class SoundTails
+				{
+					class TailInterior
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="interior";
+					};
+					class TailTrees
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*trees";
+					};
+					class TailForest
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*forest";
+					};
+					class TailMeadows
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*(meadows/2 max sea/2)";
+					};
+					class TailHouses
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*houses";
+					};
+				};
+			};
+			class SilencedSound: BaseSoundModeType
+			{
+				begin1[]={"",1,1,600};
+				begin2[]={"",1,1,600};
+				begin3[]={"",1,1,600};
+				soundBegin[]={"begin1",0.33000001,"begin2",0.33000001,"begin3",0.34};
+				class SoundTails
+				{
+					class TailInterior
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="interior";
+					};
+					class TailTrees
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*trees";
+					};
+					class TailForest
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*forest";
+					};
+					class TailMeadows
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*(meadows/2 max sea/2)";
+					};
+					class TailHouses
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*houses";
+					};
+				};
+			};
+			aiRateOfFire=2;
+			aiRateOfFireDistance=25;
+			reloadTime=0.17; //-Kane Pretty important, I reduce it to get rid off particle/bullet creations too often
+			dispersion=0;//0.00086999999
+			soundContinuous=0;
+			soundBurst=0;
+			minRange=0;
+			minRangeProbab=0.30000001;
+			midRange=5;
+			midRangeProbab=0.69999999;
+			maxRange=10;
+			maxRangeProbab=0.039999999;
+			showToPlayer=1;
+			inertia=0.2;
+			dexterity=1.8;
+			recoil="recoil_empty";
+			maxZeroing=100;
+		};
+		bullet1[]={"",0,1,15};
+		bullet2[]={"",0,1,15};
+		bullet3[]={"",0,1,15};
+		bullet4[]={"",0,1,15};
+		bullet5[]={"",0,1,15};
+		bullet6[]={"",0,1,15};
+		bullet7[]={"",0,1,15};
+		bullet8[]={"",0,1,15};
+		bullet9[]={"",0,1,15};
+		bullet10[]={"",0,1,15};
+		bullet11[]={"",0,1,15};
+		bullet12[]={"",0,1,15};
+		soundBullet[]={"bullet1",0.082999997,"bullet2",0.082999997,"bullet3",0.082999997,"bullet4",0.082999997,"bullet5",0.082999997,"bullet6",0.082999997,"bullet7",0.082999997,"bullet8",0.082999997,"bullet9",0.082999997,"bullet10",0.082999997,"bullet11",0.082999997,"bullet12",0.082999997};
+	};
+	class A3PL_Jaws: MeleePistol
+	{
+		scope = 2;
+		author="Jonzie";
+		model="\A3PL_Weapons\jaws\jaws.p3d";
+		magazines[]={"A3PL_FireaxeMag"};
+		displayname="Jaws Of Life";
+		class Library {libTextDesc = "Battery operated Jaws Of Life";};
+		fireLightIntensity=0;
+		fireLightDuration=0;
+		drySound[]={"",1,1,30};
+		reloadMagazineSound[]={"",1,1,30};
+		modes[]={"Single"};
+		class Single: Mode_FullAuto
+		{
+			sounds[]={"StandardSound"};
+			class BaseSoundModeType
+			{
+				closure1[]={"",0.12589253,1,30};
+				closure2[]={"",0.12589253,1,30};
+				soundClosure[]={"closure1",0.5,"closure2",0.5};
+			};
+			class StandardSound: BaseSoundModeType
+			{
+				begin1[]={"",1,1,600};
+				begin2[]={"",1,1,600};
+				begin3[]={"",1,1,600};
+				soundBegin[]={"begin1",0.33000001,"begin2",0.33000001,"begin3",0.34};
+				class SoundTails
+				{
+					class TailInterior
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="interior";
+					};
+					class TailTrees
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*trees";
+					};
+					class TailForest
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*forest";
+					};
+					class TailMeadows
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*(meadows/2 max sea/2)";
+					};
+					class TailHouses
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*houses";
+					};
+				};
+			};
+			reloadTime= 5; //-Kane Pretty important, I reduce it to get rid off particle/bullet creations too often
+			dispersion=0;//0.00086999999
+			soundContinuous=0;
+			soundBurst=0;
+			minRange=0;
+			minRangeProbab=0.30000001;
+			midRange=5;
+			midRangeProbab=0.69999999;
+			maxRange=10;
+			maxRangeProbab=0.039999999;
+			showToPlayer=1;
+			inertia=0.2;
+			dexterity=1.8;
+			recoil="recoil_empty";
+			maxZeroing=100;
+		};
+		bullet1[]={"",0,1,15};
+		bullet2[]={"",0,1,15};
+		bullet3[]={"",0,1,15};
+		bullet4[]={"",0,1,15};
+		bullet5[]={"",0,1,15};
+		bullet6[]={"",0,1,15};
+		bullet7[]={"",0,1,15};
+		bullet8[]={"",0,1,15};
+		bullet9[]={"",0,1,15};
+		bullet10[]={"",0,1,15};
+		bullet11[]={"",0,1,15};
+		bullet12[]={"",0,1,15};
+		soundBullet[]={"bullet1",0.082999997,"bullet2",0.082999997,"bullet3",0.082999997,"bullet4",0.082999997,"bullet5",0.082999997,"bullet6",0.082999997,"bullet7",0.082999997,"bullet8",0.082999997,"bullet9",0.082999997,"bullet10",0.082999997,"bullet11",0.082999997,"bullet12",0.082999997};
+	};
+	class A3PL_High_Pressure_Ladder: HMG_M2
+	{
+		author="Jonzie";
+		model="\A3PL_Weapons\Nozzle\A3PL_FireNozzle.p3d";
+		magazines[]={"A3PL_High_Pressure_Water_Mag","A3PL_Medium_Pressure_Water_Mag","A3PL_Low_Pressure_Water_Mag","A3PL_High_Pressure_Foam_Mag","A3PL_Medium_Pressure_Foam_Mag","A3PL_Low_Pressure_Foam_Mag"};
+		displayname="Fire Nozzle";
+		class Library {libTextDesc = "";};
+		fireLightIntensity=0;
+		fireLightDuration=0;
+		drySound[]={"",1,1,30};
+		reloadMagazineSound[]={"",1,1,30};
+		modes[]={"Single"};
+		class GunParticles{};
+		class Single: Mode_FullAuto
+		{
+			sounds[]={"StandardSound","SilencedSound"};
+			class BaseSoundModeType
+			{
+				closure1[]={"",0.12589253,1,30};
+				closure2[]={"",0.12589253,1,30};
+				soundClosure[]={"closure1",0.5,"closure2",0.5};
+			};
+			class StandardSound: BaseSoundModeType
+			{
+				begin1[]={"",1,1,600};
+				begin2[]={"",1,1,600};
+				begin3[]={"",1,1,600};
+				soundBegin[]={"begin1",0.33000001,"begin2",0.33000001,"begin3",0.34};
+				class SoundTails
+				{
+					class TailInterior
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="interior";
+					};
+					class TailTrees
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*trees";
+					};
+					class TailForest
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*forest";
+					};
+					class TailMeadows
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*(meadows/2 max sea/2)";
+					};
+					class TailHouses
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*houses";
+					};
+				};
+			};
+			class SilencedSound: BaseSoundModeType
+			{
+				begin1[]={"",1,1,600};
+				begin2[]={"",1,1,600};
+				begin3[]={"",1,1,600};
+				soundBegin[]={"begin1",0.33000001,"begin2",0.33000001,"begin3",0.34};
+				class SoundTails
+				{
+					class TailInterior
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="interior";
+					};
+					class TailTrees
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*trees";
+					};
+					class TailForest
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*forest";
+					};
+					class TailMeadows
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*(meadows/2 max sea/2)";
+					};
+					class TailHouses
+					{
+						sound[]={"",1,1,600};
+						frequency=1;
+						volume="(1-interior/1.4)*houses";
+					};
+				};
+			};
+			aiRateOfFire=2;
+			aiRateOfFireDistance=25;
+			reloadTime=0.17; //-Kane Pretty important, I reduce it to get rid off particle/bullet creations too often
+			dispersion=0;//0.00086999999
+			soundContinuous=0;
+			soundBurst=0;
+			minRange=0;
+			minRangeProbab=0.30000001;
+			midRange=5;
+			midRangeProbab=0.69999999;
+			maxRange=10;
+			maxRangeProbab=0.039999999;
+			showToPlayer=1;
+			inertia=0.2;
+			dexterity=1.8;
+			recoil="recoil_empty";
+			maxZeroing=100;
+		};
+		bullet1[]={"",0,1,15};
+		bullet2[]={"",0,1,15};
+		bullet3[]={"",0,1,15};
+		bullet4[]={"",0,1,15};
+		bullet5[]={"",0,1,15};
+		bullet6[]={"",0,1,15};
+		bullet7[]={"",0,1,15};
+		bullet8[]={"",0,1,15};
+		bullet9[]={"",0,1,15};
+		bullet10[]={"",0,1,15};
+		bullet11[]={"",0,1,15};
+		bullet12[]={"",0,1,15};
+		soundBullet[]={"bullet1",0.082999997,"bullet2",0.082999997,"bullet3",0.082999997,"bullet4",0.082999997,"bullet5",0.082999997,"bullet6",0.082999997,"bullet7",0.082999997,"bullet8",0.082999997,"bullet9",0.082999997,"bullet10",0.082999997,"bullet11",0.082999997,"bullet12",0.082999997};
+	};
+	
+};
+class CfgMovesBasic 
+{
+	class ManActions 
+	{
+		GestureSwing = "";
+	};
+	class Actions 
+	{
+		class NoActions: ManActions 
+		{
+			GestureSwing[] = {"GestureSwing","Gesture"};
+		};
+	};
+};
