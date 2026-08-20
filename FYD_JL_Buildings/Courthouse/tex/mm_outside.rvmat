@@ -1,0 +1,171 @@
+ambient[] = {0.5,0.5,0.5,1};
+diffuse[] = {0.65,0.65,0.65,1};
+forcedDiffuse[] = {0,0,0,0};
+emmisive[] = {0,0,0,1};
+specular[] = {0.05,0.05,0.05,1};
+specularPower = 20;
+PixelShaderID = "Multi";
+VertexShaderID = "Multi";
+class TexGen0
+{
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class TexGen5
+{
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class Stage0
+{
+	texture = "A3PL_MultiMats_3\Bricks\Stone_Pavement_co.paa";
+	texGen = "0";
+};
+class Stage5
+{
+	texture = "A3PL_MultiMats_3\Bricks\Stone_Pavement_SMDI.paa";
+	texGen = "5";
+};
+class Stage11
+{
+	texture = "A3PL_MultiMats_3\Bricks\Stone_Pavement_NOHQ.paa";
+	texGen = "0";
+};
+class TexGen1
+{
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class TexGen6
+{
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class Stage1
+{
+	texture = "A3PL_Multimats_7\Brick\Brick_Type_6_co.paa";
+	texGen = "1";
+};
+class Stage6
+{
+	texture = "A3PL_Multimats_7\Brick\Brick_Type_6_smdi.paa";
+	texGen = "6";
+};
+class Stage12
+{
+	texture = "A3PL_Multimats_7\Brick\Brick_Type_6_nohq.paa";
+	texGen = "1";
+};
+class TexGen2
+{
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class TexGen7
+{
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class Stage2
+{
+	texture = "A3PL_MultiMats_3\Stucco\Stucco_Facade_Creme_CO.paa";
+	texGen = "2";
+};
+class Stage7
+{
+	texture = "A3PL_MultiMats_3\Stucco\Stucco_Facade_Creme_smdi.paa";
+	texGen = "7";
+};
+class Stage13
+{
+	texture = "A3PL_MultiMats_3\Stucco\Stucco_Facade_Creme_nohq.paa";
+	texGen = "2";
+};
+class TexGen3
+{
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class Stage3
+{
+	texture = "A3PL_Multimats_7\Concrete\Concrete_type_1_co.paa";
+	texGen = "3";
+};
+class Stage8
+{
+	texture = "A3PL_Multimats_7\Concrete\Concrete_type_1_smdi.paa";
+	texGen = "3";
+};
+class Stage14
+{
+	texture = "A3PL_Multimats_7\Concrete\Concrete_type_1_nohq.paa";
+	texGen = "3";
+};
+class TexGen4
+{
+	uvSource = "tex1";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class Stage4
+{
+	texture = "FYD_JL_Buildings\Courthouse\tex\mm_outside_mask.paa";
+	texGen = "4";
+};
+class Stage9
+{
+	texture = "FYD_JL_Buildings\Courthouse\tex\mm_outside_ca.paa";
+	texGen = "4";
+};
+class Stage10
+{
+	texture = "FYD_JL_Buildings\Courthouse\tex\mm_outside_adshq.paa";
+	texGen = "4";
+};

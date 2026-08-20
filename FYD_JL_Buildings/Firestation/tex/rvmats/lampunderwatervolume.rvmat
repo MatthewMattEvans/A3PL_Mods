@@ -1,0 +1,22 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: P:\FYD_JL_Buildings\Firestation\tex\rvmats\lampunderwatervolume.rvmat
+//Produced from mikero's Dos Tools Dll version 9.11
+//https://mikero.bytex.digital/Downloads
+//'now' is Thu Jun 22 17:20:34 2023 : 'file' last modified on Sat Dec 24 12:01:06 2022
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+class StageTI
+{
+	texture = "a3\data_f\default_hot_ti_ca.paa";
+};
+ambient[] = {1,1,1,1};
+diffuse[] = {1,1,1,1};
+forcedDiffuse[] = {0,0,0,1};
+emmisive[] = {1000,1000,1000,1};
+specular[] = {0,0,0,0};
+specularPower = 0;
+renderFlags[] = {"NoZWrite","NoAlphaWrite","AddBlend"};
+PixelShaderID = "Normal";
+VertexShaderID = "BasicFade";

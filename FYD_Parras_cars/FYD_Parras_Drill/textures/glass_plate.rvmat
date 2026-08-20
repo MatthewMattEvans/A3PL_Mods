@@ -1,0 +1,19 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: Produced from mikero's Dos Tools Dll version 5.24
+//Produced on Mon Sep 28 16:21:30 2015 : Created on Mon Sep 28 16:21:30 2015
+//http://dev-heaven.net/projects/list_files/mikero-pbodll
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+//Class data_f : penetration\glass_plate.rvmat{
+surfaceInfo = "A3\data_f\Penetration\glass_plate.bisurf";
+ambient[] = {0.75,0.75,0.75,1};
+diffuse[] = {0.75,0.75,0.75,1};
+forcedDiffuse[] = {0,0,0,0};
+emmisive[] = {0,0,0,1};
+specular[] = {0,0,0,1};
+specularPower = 1;
+PixelShaderID = "Normal";
+VertexShaderID = "Basic";
+//};

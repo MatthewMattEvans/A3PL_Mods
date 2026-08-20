@@ -1,0 +1,22 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: Produced from mikero's Dos Tools Dll version 4.97
+//Wed Jun 17 22:11:57 2015 : Source 'file' date Wed Jun 17 22:11:57 2015
+//http://dev-heaven.net/projects/list_files/mikero-pbodll
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+//Class data_f : lights\car_beacon_orange.rvmat{
+class StageTI
+{
+	texture = "a3\data_f\default_vehicle_ti_ca.paa";
+};
+ambient[] = {0.3,0.1,0,1};
+diffuse[] = {0.3,0.1,0,1};
+forcedDiffuse[] = {0,0,0,0};
+emmisive[] = {72000,4200,500,1};
+specular[] = {0,0,0,1};
+specularPower = 1;
+PixelShaderID = "Normal";
+VertexShaderID = "Basic";
+//};

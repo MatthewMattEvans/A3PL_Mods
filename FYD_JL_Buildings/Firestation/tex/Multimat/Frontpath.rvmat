@@ -1,0 +1,142 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: P:\FYD_JL_Buildings\Firestation\tex\Multimat\Frontpath.rvmat
+//Produced from mikero's Dos Tools Dll version 9.11
+//https://mikero.bytex.digital/Downloads
+//'now' is Thu Jun 22 17:27:46 2023 : 'file' last modified on Sat Dec 24 12:01:05 2022
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+ambient[] = {0.8,0.8,0.8,1};
+diffuse[] = {0.8,0.8,0.8,1};
+forcedDiffuse[] = {0,0,0,0};
+emmisive[] = {0,0,0,1};
+specular[] = {1,1,1,1};
+specularPower = 300;
+PixelShaderID = "Multi";
+VertexShaderID = "Multi";
+class TexGen0
+{
+	uvSource = "tex1";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class Stage0
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\jd_asphalt_co.paa";
+	texGen = "0";
+};
+class Stage5
+{
+	texture = "#(argb,8,8,3)color(0.5,0,1,1,DTSMDI)";
+	texGen = "0";
+};
+class Stage11
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\jd_asphalt_nopx.paa";
+	texGen = "0";
+};
+class TexGen1
+{
+	uvSource = "tex1";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class Stage1
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\fire_station_floor_CO.paa";
+	texGen = "1";
+};
+class Stage6
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\fire_station_floor_SMDI.paa";
+	texGen = "1";
+};
+class Stage12
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\fire_station_floor_NOHQ.paa";
+	texGen = "1";
+};
+class TexGen2
+{
+	uvSource = "tex1";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class Stage2
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\ConcreteOutdoors_CO.paa";
+	texGen = "2";
+};
+class Stage7
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\ConcreteOutdoors_SMDI.paa";
+	texGen = "2";
+};
+class Stage13
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\ConcreteOutdoors_NOHQ.paa";
+	texGen = "2";
+};
+class TexGen3
+{
+	uvSource = "tex1";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class Stage3
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\brick_co.paa";
+	texGen = "3";
+};
+class Stage8
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\brick_SMDI.paa";
+	texGen = "3";
+};
+class Stage14
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\brick_NOHQ.paa";
+	texGen = "3";
+};
+class TexGen4
+{
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,1};
+		pos[] = {0,0,0};
+	};
+};
+class Stage4
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\Frontpath_Mask.paa";
+	texGen = "4";
+};
+class Stage10
+{
+	texture = "FYD_JL_Buildings\Firestation\tex\Multimat\Frontpath_ADS.paa";
+	texGen = "4";
+};

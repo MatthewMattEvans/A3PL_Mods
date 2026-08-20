@@ -1,0 +1,114 @@
+#define _ARMA_
+
+mainLight = "Sun";
+FogMode = "Fog";
+Ambient[] = {1,1,1,1};
+Diffuse[] = {1,1,1,1};
+Emmisive[] = {0,0,0,1};
+ForcedDiffuse[] = {0,0,0,1};
+Specular[] = {0.1,0.1,0.1,1};
+SpecularPower = 30;
+PixelShaderId = "Super";
+VertexShaderId = "Super";
+class TegGen0
+{
+	uvSource = "None";
+};
+class TegGen1
+{
+	uvSource = "Tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};
+class TegGen2
+{
+	uvSource = "Tex1";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};
+class TegGen3
+{
+	uvSource = "Tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};
+class TegGen4
+{
+	uvSource = "Tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};
+class TegGen5
+{
+	uvSource = "Tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};
+class TegGen6
+{
+	uvSource = "None";
+};
+class TegGen7
+{
+	uvSource = "None";
+};
+class stage1
+{
+	texture = "FYD_Parras_Houses\FYD_Parras_Modern_House\data\NVS_concrete_plates_nohq.paa";
+	Texgen = 1;
+};
+class stage2
+{
+	texture = "#(argb,8,8,3)color(0.5,0.5,0.5,1,dt)";
+	Texgen = 2;
+};
+class stage3
+{
+	texture = "#(argb,8,8,3)color(0,0,0,0,mc)";
+	Texgen = 3;
+};
+class stage4
+{
+	texture = "#(argb,8,8,3)color(1,1,1,1,as)";
+	Texgen = 4;
+};
+class stage5
+{
+	texture = "#(argb,8,8,3)color(1,1,1,1,smdi)";
+	Texgen = 5;
+};
+class stage6
+{
+	texture = "#(ai,64,64,1)fresnel(7.53,5.44)";
+	Texgen = 6;
+};
+class stage7
+{
+	texture = "a3\data_f\env_land_co.paa";
+	Texgen = 7;
+};
