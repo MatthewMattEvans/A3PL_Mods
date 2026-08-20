@@ -1,0 +1,6 @@
+//<'EC_Optics.pbo' properties via Mikero's dos tools, dll version 9.61>
+prefix=EC_Optics;
+Mikero=DePbo.dll.9.36;
+version=23111601;
+//PboType=Arma Addon;
+//</properties>
