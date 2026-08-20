@@ -1,0 +1,6 @@
+//<'ec_cars.pbo' properties via Mikero's dos tools, dll version 10.10>
+prefix=EC_Cars;
+Mikero=DePbo.dll.9.98;
+version=25111301;
+//PboType=Arma Addon;
+//</properties>

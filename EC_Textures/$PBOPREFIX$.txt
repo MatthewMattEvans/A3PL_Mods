@@ -1,0 +1,6 @@
+//<'EC_Textures.pbo' properties via Mikero's dos tools, dll version 9.66>
+prefix=EC_Textures;
+Mikero=DePbo.dll.9.10;
+version=24012520;
+//PboType=Arma Addon;
+//</properties>

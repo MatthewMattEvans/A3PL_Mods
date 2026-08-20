@@ -1,0 +1,15 @@
++ec_buildings2\gates\ec_noparkingdecal2.p3d
++ec_buildings2\gates\model.cfg
++a3\structures_f\mil\helipads\data\helipads.rvmat
++ec_buildings2\gates\data\ground_marking_ca.paa
++a3\data_f\surfaces\hlinasterk.paa
+-ec_buildings2\gates\ec_noparkingdecal2.cfg
+-ec_buildings2\gates\gates.cfg
+-ec_buildings2\ec_buildings2.cfg
+-ec_buildings2\model.cfg
+-model.cfg
+core\data\fonts\lucidaconsoleb8-01.paa
+core\data\fonts\lucidaconsoleb11-01.paa
+ec_buildings2\gates\data\ground_marking_ca.paa
+a3\data_f\surfaces\hlinasterk.paa
+a3\structures_f\mil\helipads\data\helipads.rvmat
