@@ -1,0 +1,12 @@
+class StageTI
+{
+	texture="a3\data_f\default_ti_ca.paa";
+};
+ambient[]={250000,500000,250000,1};
+diffuse[]={250000,500000,250000,1};
+forcedDiffuse[]={250000,500000,250000,1};
+emmisive[]={250000,500000,250000,1};
+specular[]={0,0,0,1};
+specularPower=0;
+PixelShaderID="Normal";
+VertexShaderID="Basic";
