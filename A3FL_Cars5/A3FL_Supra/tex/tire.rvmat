@@ -1,0 +1,41 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: A3FL_Supra\tex\tire.rvmat
+//Produced from mikero's Dos Tools Dll version 9.89
+//https://mikero.bytex.digital/Downloads
+//'now' is Mon Dec 02 15:23:23 2024 : 'file' last modified on Tue Jan 17 18:41:14 2023
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+ambient[] = {1,1,1,1};
+diffuse[] = {1,1,1,1};
+forcedDiffuse[] = {0,0,0,0};
+emmisive[] = {0,0,0,0};
+specular[] = {0.4,0.4,0.4,0};
+specularPower = 30;
+PixelShaderID = "NormalMapSpecularDIMap";
+VertexShaderID = "NormalMap";
+class Stage1
+{
+	texture = "A3FL_Cars5\A3FL_Supra\tex\tire_NOHQ.paa";
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};
+class Stage2
+{
+	texture = "A3FL_Cars5\A3FL_Supra\tex\tire_SMDI.paa";
+	uvSource = "tex";
+	class uvTransform
+	{
+		aside[] = {1,0,0};
+		up[] = {0,1,0};
+		dir[] = {0,0,0};
+		pos[] = {0,0,0};
+	};
+};

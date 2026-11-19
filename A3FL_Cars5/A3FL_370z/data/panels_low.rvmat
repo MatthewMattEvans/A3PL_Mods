@@ -1,0 +1,21 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: A3FL_370z\data\panels_low.rvmat
+//Produced from mikero's Dos Tools Dll version 9.89
+//https://mikero.bytex.digital/Downloads
+//'now' is Mon Dec 02 15:23:21 2024 : 'file' last modified on Mon Aug 22 18:18:24 2022
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+class StageTI
+{
+	texture = "a3\data_f\default_vehicle_ti_ca.paa";
+};
+ambient[] = {1,1,1,1};
+diffuse[] = {0,0,0,1};
+forcedDiffuse[] = {0,0,0,0};
+emmisive[] = {10,10,10,10};
+specular[] = {0,0,0,1};
+specularPower = 1;
+PixelShaderID = "Normal";
+VertexShaderID = "Basic";

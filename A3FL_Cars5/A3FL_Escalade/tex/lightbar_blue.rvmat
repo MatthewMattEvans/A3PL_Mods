@@ -1,0 +1,21 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: A3FL_Escalade\tex\lightbar_blue.rvmat
+//Produced from mikero's Dos Tools Dll version 9.89
+//https://mikero.bytex.digital/Downloads
+//'now' is Mon Dec 02 15:23:22 2024 : 'file' last modified on Tue Jan 17 18:41:12 2023
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+class StageTI
+{
+	texture = "a3\data_f\default_vehicle_ti_ca.paa";
+};
+ambient[] = {0,0,10000,1};
+diffuse[] = {0,0,10000,1};
+forcedDiffuse[] = {0,0,0,0};
+emmisive[] = {2000,2000,100000,1};
+specular[] = {0,0,0,1};
+specularPower = 1;
+PixelShaderID = "Normal";
+VertexShaderID = "Basic";
