@@ -1,0 +1,72 @@
+//VersionOfBase = 1.0;
+//DateOfLastUpdate = "31.01.2023";
+//Author = "MosMind";
+
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="my_project">
+<Package name="my_language">
+<Container name="MM_Buildings_Pack">
+
+<Key ID="STR_MM_BUILDINGS_CIVIL">
+<Original>MM Civilian Buildings</Original>
+<English>MM Civilian Buildings</English>
+<Russian>MM Гражданские постройки</Russian>
+</Key>
+
+<Key ID="STR_MM_BUILDINGS_MUNICIPAL">
+<Original>MM Municipal Buildings</Original>
+<English>MM Municipal Buildings</English>
+<Russian>MM Муниципальные сооружения</Russian>
+</Key>
+
+<Key ID="STR_MM_BRIDGES">
+<Original>Bridges</Original>
+<English>Bridges</English>
+<Russian>Мосты</Russian>
+</Key>
+
+<Key ID="STR_MM_CIVIL_HOUSES">
+<Original>Houses</Original>
+<English>Houses</English>
+<Russian>Жилые дома</Russian>
+</Key>
+
+<Key ID="STR_MM_SHOWROOMS">
+<Original>Showrooms</Original>
+<English>Showrooms</English>
+<Russian>Автосалоны</Russian>
+</Key>
+
+<Key ID="STR_MM_ANCIENT_BUILDINGS">
+<Original>Ancient buildings</Original>
+<English>Ancient buildings</English>
+<Russian>Древние сооружения</Russian>
+</Key>
+
+<Key ID="STR_MM_FNC_OPENDOOR">
+<Original>Open door</Original>
+<English>Open door</English>
+<Russian>Открыть дверь</Russian>
+</Key>
+
+<Key ID="STR_MM_FNC_CLOSEDOOR">
+<Original>Close door</Original>
+<English>Close door</English>
+<Russian>Закрыть дверь</Russian>
+</Key>
+
+<Key ID="STR_MM_FNC_OPENGATE">
+<Original>Open gate</Original>
+<English>Open gate</English>
+<Russian>Открыть ворота</Russian>
+</Key>
+
+<Key ID="STR_MM_FNC_CLOSEGATE">
+<Original>Close gate</Original>
+<English>Close gate</English>
+<Russian>Закрыть ворота</Russian>
+</Key>
+
+</Container>
+</Package>
+</Project>

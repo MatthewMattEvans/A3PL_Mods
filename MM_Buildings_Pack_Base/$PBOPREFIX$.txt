@@ -1,0 +1,6 @@
+//<'MM_Buildings_Pack_Base.pbo' properties via Mikero's dos tools, dll version 9.64>
+prefix=MM_Buildings_Pack_Base;
+Mikero=DePbo.dll.9.36;
+version=24072006;
+//PboType=Arma Addon;
+//</properties>
